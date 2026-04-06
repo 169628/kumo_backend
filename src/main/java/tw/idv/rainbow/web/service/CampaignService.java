@@ -16,4 +16,6 @@ public interface CampaignService {
     String delete(Long campaignId);
 
     String update(Long campaignId, Campaigns campaign);
+
+    String toggleEnable(Long campaignId);
 }

@@ -62,5 +62,14 @@ public class CampaignController {
         }
         return ApiResponse.success(null);
     }
+
+    @PutMapping("enable/{id}")
+    public ApiResponse enable(@PathVariable Long id){
+        String message = campaignService.toggleEnable(id);
+        if(message != null){
+            return ApiResponse.error(message);
+        }
+        return ApiResponse.success(null);
+    }
 }
 

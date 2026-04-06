@@ -8,6 +8,7 @@ import tw.idv.rainbow.web.entity.Campaigns;
 import tw.idv.rainbow.web.repository.CampaignsRepository;
 import tw.idv.rainbow.web.service.CampaignService;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,11 +50,23 @@ public class CampaignServiceImpl implements CampaignService {
             return "Target version must be at least 2 characters and maximum 10 characters";
         }
 
-        campaign = repository.save(campaign);
-        Long id = campaign.getCampaignId();
-        if (id == null) {
-            return "Create failed";
+        if(campaign.getFile() == null){
+            return "File is required";
         }
+
+        if(campaign.getFileSize() == null){
+            return "File size is required";
+        }
+
+        if(campaign.getIsTestMode() == null){
+            return "Test mode is required";
+        }
+
+        if(campaign.getDownloadById() == null){
+            return "Download by id is required";
+        }
+
+        repository.save(campaign);
 
         return null;
     }
@@ -80,13 +93,13 @@ public class CampaignServiceImpl implements CampaignService {
 
     @Override
     public String delete(Long campaignId) {
-        if(campaignId == null) {
-            return "campaign id is required";
+
+        Campaigns campaign = repository.findByCampaignId(campaignId);
+        if(campaign == null || campaign.getIsDeleted()){
+            return "Can not find the campaign";
         }
-        int count = repository.deleteByCampaignId(campaignId);
-        if (count != 1) {
-            return "Delete campaign failed";
-        }
+        campaign.setIsDeleted(true);
+        repository.save(campaign);
         return null;
     }
 
@@ -101,45 +114,73 @@ public class CampaignServiceImpl implements CampaignService {
             return "Campaign id is required";
         }
 
-        if (brand == null) {
-            return "Brand is required";
-        } else if (brand.length() < 2 || brand.length() > 20) {
-            return "Brand must be at least 2 characters and maximum 20 characters";
-        }
-
-        if (model == null) {
-            return "Model is required";
-        } else if (model.length() < 2 || model.length() > 10) {
-            return "Model must be at least 2 characters and maximum 10 characters";
-        }
-
-        if (sv == null) {
-            return "Source version is required";
-        } else if (sv.length() < 2 || sv.length() > 10) {
-            return "Source version must be at least 2 characters and maximum 10 characters";
-        }
-
-        if (tv == null) {
-            return "Target version is required";
-        } else if (tv.length() < 2 || tv.length() > 10) {
-            return "Target version must be at least 2 characters and maximum 10 characters";
-        }
-
         Campaigns campaign = repository.findByCampaignId(campaignId);
-        if(campaign == null){
-            return "can not find the campaign";
+        if(campaign == null || campaign.getIsDeleted()){
+            return "Can not find the campaign";
         }
-        campaign.setIsEnabled(newCampaign.getIsEnabled());
-        campaign.setBrand(newCampaign.getBrand());
-        campaign.setModel(newCampaign.getModel());
-        campaign.setSv(newCampaign.getSv());
-        campaign.setTv(newCampaign.getTv());
-        campaign.setFile(newCampaign.getFile());
-        campaign.setFileSize(newCampaign.getFileSize());
-        campaign.setIsTestMode(newCampaign.getIsTestMode());
-        campaign.setTestList(newCampaign.getTestList());
-        campaign.setDownloadById(newCampaign.getDownloadById());
-        campaign = repository.save(campaign);
+
+        if (brand != null) {
+            if(brand.length() < 2 || brand.length() > 20){
+                return "Brand must be at least 2 characters and maximum 20 characters";
+            }
+            campaign.setBrand(brand);
+        }
+
+        if (model != null) {
+            if(model.length() < 2 || model.length() > 10){
+                return "Model must be at least 2 characters and maximum 10 characters";
+            }
+            campaign.setModel(model);
+        }
+
+        if (sv != null) {
+            if(sv.length() < 2 || sv.length() > 10){
+                return "Source version must be at least 2 characters and maximum 10 characters";
+            }
+            campaign.setSv(sv);
+        }
+
+        if (tv != null) {
+            if(tv.length() < 2 || tv.length() > 10){
+                return "Target version must be at least 2 characters and maximum 10 characters";
+            }
+            campaign.setTv(tv);
+        }
+
+        if(newCampaign.getFile() != null){
+            campaign.setFile(newCampaign.getFile());
+        }
+
+        if(newCampaign.getFileSize() != null){
+            campaign.setFileSize(newCampaign.getFileSize());
+        }
+
+        if(newCampaign.getIsTestMode() != null){
+            campaign.setIsTestMode(newCampaign.getIsTestMode());
+        }
+
+        if(newCampaign.getTestList() != null && !newCampaign.getTestList().isEmpty()){
+            campaign.setTestList(newCampaign.getTestList());
+        }
+
+        if(newCampaign.getDownloadById() != null){
+            campaign.setDownloadById(newCampaign.getDownloadById());
+        }
+        campaign.setUpdateAt(new Timestamp(System.currentTimeMillis()));
+        repository.save(campaign);
+
         return null;
     }
+
+    @Override
+    public String toggleEnable(Long campaignId) {
+        Campaigns campaign = repository.findByCampaignId(campaignId);
+        if(campaign == null || campaign.getIsDeleted()){
+            return "Can not find the campaign";
+        }
+        campaign.setIsEnabled(!campaign.getIsEnabled());
+        repository.save(campaign);
+        return null;
+    }
+
 }
