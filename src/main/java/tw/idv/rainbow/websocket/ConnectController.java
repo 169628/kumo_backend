@@ -25,8 +25,6 @@ public class ConnectController {
         if(response != null && response.getMessage() == null){
             if(response.getCampaignDTO() != null){
                 response.setMessage("received");
-            } else {
-                response.setMessage("receive " + deviceDTO.getStatus());
             }
         }
         System.out.println("後端回覆");

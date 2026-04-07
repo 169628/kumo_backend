@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import tw.idv.rainbow.web.dto.CampaignDTO;
+import tw.idv.rainbow.web.dto.ConnectLogDTO;
 import tw.idv.rainbow.web.dto.ConnectResponseDTO;
 import tw.idv.rainbow.web.dto.DeviceDTO;
 import tw.idv.rainbow.web.entity.Campaigns;
@@ -17,6 +18,7 @@ import tw.idv.rainbow.web.repository.DevicesRepository;
 import tw.idv.rainbow.web.repository.StatusRefRepository;
 import tw.idv.rainbow.web.service.DeviceService;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -151,5 +153,27 @@ public class DeviceServiceImpl implements DeviceService {
             response.setSession(deviceDTO.getSession());
             return response;
         }
+    }
+
+    @Override
+    public List<ConnectLogDTO> getDevice() {
+        List<ConnectLogs> connectLogsList = connectLogsRepository.findLatestPerDevice();
+        List<ConnectLogDTO> dtoList = new ArrayList<>();
+        for(ConnectLogs connectLog : connectLogsList){
+            ConnectLogDTO dto = ConnectLogDTO.toDTO(connectLog);
+            dtoList.add(dto);
+        }
+        return dtoList;
+    }
+
+    @Override
+    public List<ConnectLogDTO> getOneDeviceLog(Long deviceId) {
+        List<ConnectLogs> connectLogsList = connectLogsRepository.findByDeviceIdOrderByReportedAtDesc(deviceId);
+        List<ConnectLogDTO> dtoList = new ArrayList<>();
+        for(ConnectLogs connectLog : connectLogsList){
+            ConnectLogDTO dto = ConnectLogDTO.toDTO(connectLog);
+            dtoList.add(dto);
+        }
+        return dtoList;
     }
 }

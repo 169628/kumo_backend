@@ -1,22 +1,22 @@
-2026-04-06 22:40:31.409 [INFO] [restartedMain] [54] Starting KumoApplication using Java 17.0.16 with PID 91206 (/Users/Rainbow_1/IdeaProjects/kumo/target/classes started by pipishrimp in /Users/Rainbow_1/IdeaProjects/kumo)
-2026-04-06 22:40:31.414 [DEBUG] [restartedMain] [55] Running with Spring Boot v4.0.5, Spring v7.0.6
-2026-04-06 22:40:31.415 [INFO] [restartedMain] [652] No active profile set, falling back to 1 default profile: "default"
-2026-04-06 22:40:31.468 [INFO] [restartedMain] [69] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2026-04-06 22:40:31.468 [INFO] [restartedMain] [69] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2026-04-06 22:40:31.781 [INFO] [restartedMain] [145] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-04-06 22:40:31.814 [INFO] [restartedMain] [213] Finished Spring Data repository scanning in 28 ms. Found 4 JPA repository interfaces.
-2026-04-06 22:40:32.106 [INFO] [restartedMain] [114] Tomcat initialized with port 8080 (http)
-2026-04-06 22:40:32.115 [INFO] [restartedMain] [168] Starting service [Tomcat]
-2026-04-06 22:40:32.115 [INFO] [restartedMain] [168] Starting Servlet engine: [Apache Tomcat/11.0.20]
-2026-04-06 22:40:32.138 [INFO] [restartedMain] [77] Root WebApplicationContext: initialization completed in 669 ms
-2026-04-06 22:40:32.214 [INFO] [restartedMain] [109] HikariPool-1 - Starting...
-2026-04-06 22:40:32.586 [INFO] [restartedMain] [580] HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@23e7289
-2026-04-06 22:40:32.587 [INFO] [restartedMain] [122] HikariPool-1 - Start completed.
-2026-04-06 22:40:32.602 [INFO] [restartedMain] [102] HHH008540: Processing PersistenceUnitInfo [name: default]
-2026-04-06 22:40:32.633 [INFO] [restartedMain] [41] HHH000001: Hibernate ORM core version 7.2.7.Final
-2026-04-06 22:40:32.934 [INFO] [restartedMain] [129] No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-04-06 22:40:33.049 [WARN] [restartedMain] [152] HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-04-06 22:40:33.063 [INFO] [restartedMain] [179] HHH10001005: Database info:
+2026-04-07 20:19:51.051 [INFO] [restartedMain] [54] Starting KumoApplication using Java 17.0.16 with PID 9495 (/Users/Rainbow_1/IdeaProjects/kumo/target/classes started by pipishrimp in /Users/Rainbow_1/IdeaProjects/kumo)
+2026-04-07 20:19:51.058 [DEBUG] [restartedMain] [55] Running with Spring Boot v4.0.5, Spring v7.0.6
+2026-04-07 20:19:51.059 [INFO] [restartedMain] [652] No active profile set, falling back to 1 default profile: "default"
+2026-04-07 20:19:51.088 [INFO] [restartedMain] [69] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-04-07 20:19:51.088 [INFO] [restartedMain] [69] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-04-07 20:19:51.563 [INFO] [restartedMain] [145] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-07 20:19:51.596 [INFO] [restartedMain] [213] Finished Spring Data repository scanning in 25 ms. Found 4 JPA repository interfaces.
+2026-04-07 20:19:51.852 [INFO] [restartedMain] [114] Tomcat initialized with port 8080 (http)
+2026-04-07 20:19:51.860 [INFO] [restartedMain] [168] Starting service [Tomcat]
+2026-04-07 20:19:51.860 [INFO] [restartedMain] [168] Starting Servlet engine: [Apache Tomcat/11.0.20]
+2026-04-07 20:19:51.877 [INFO] [restartedMain] [77] Root WebApplicationContext: initialization completed in 789 ms
+2026-04-07 20:19:51.947 [INFO] [restartedMain] [109] HikariPool-1 - Starting...
+2026-04-07 20:19:52.261 [INFO] [restartedMain] [580] HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1cd9099
+2026-04-07 20:19:52.262 [INFO] [restartedMain] [122] HikariPool-1 - Start completed.
+2026-04-07 20:19:52.278 [INFO] [restartedMain] [102] HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-04-07 20:19:52.309 [INFO] [restartedMain] [41] HHH000001: Hibernate ORM core version 7.2.7.Final
+2026-04-07 20:19:52.593 [INFO] [restartedMain] [129] No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-07 20:19:52.796 [WARN] [restartedMain] [152] HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-07 20:19:52.806 [INFO] [restartedMain] [179] HHH10001005: Database info:
 	Database JDBC URL [jdbc:mysql://localhost:3307/KUMO]
 	Database driver: MySQL Connector/J
 	Database dialect: MySQLDialect
@@ -28,84 +28,46 @@
 	Pool: DataSourceConnectionProvider
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2026-04-06 22:40:33.267 [ERROR] [restartedMain] [453] Failed to initialize JPA EntityManagerFactory: Table [connect_logs] contains physical column name [device_id] referred to by multiple logical column names: [device_id], [deviceId]
-2026-04-06 22:40:33.267 [WARN] [restartedMain] [629] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/hibernate/autoconfigure/HibernateJpaConfiguration.class]: Table [connect_logs] contains physical column name [device_id] referred to by multiple logical column names: [device_id], [deviceId]
-2026-04-06 22:40:33.268 [INFO] [restartedMain] [349] HikariPool-1 - Shutdown initiated...
-2026-04-06 22:40:33.272 [INFO] [restartedMain] [351] HikariPool-1 - Shutdown completed.
-2026-04-06 22:40:33.274 [INFO] [restartedMain] [168] Stopping service [Tomcat]
-2026-04-06 22:40:33.284 [INFO] [restartedMain] [82] 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2026-04-06 22:40:33.293 [ERROR] [restartedMain] [863] Application run failed
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/hibernate/autoconfigure/HibernateJpaConfiguration.class]: Table [connect_logs] contains physical column name [device_id] referred to by multiple logical column names: [device_id], [deviceId]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1817)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:603)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:201)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:977)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:621)
-	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
-	at tw.idv.rainbow.KumoApplication.main(KumoApplication.java:10)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:52)
-Caused by: org.hibernate.DuplicateMappingException: Table [connect_logs] contains physical column name [device_id] referred to by multiple logical column names: [device_id], [deviceId]
-	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl$TableColumnNameBinding.bindPhysicalToLogical(InFlightMetadataCollectorImpl.java:1106)
-	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl$TableColumnNameBinding.addBinding(InFlightMetadataCollectorImpl.java:1075)
-	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.addColumnNameBinding(InFlightMetadataCollectorImpl.java:1146)
-	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.addColumnNameBinding(InFlightMetadataCollectorImpl.java:1126)
-	at org.hibernate.boot.model.internal.AnnotatedJoinColumn.addColumnBinding(AnnotatedJoinColumn.java:422)
-	at org.hibernate.boot.model.internal.AnnotatedColumn.linkWithValue(AnnotatedColumn.java:514)
-	at org.hibernate.boot.model.internal.TableBinder.linkJoinColumnWithValueOverridingNameIfImplicit(TableBinder.java:883)
-	at org.hibernate.boot.model.internal.TableBinder.bindImplicitPrimaryKeyReference(TableBinder.java:626)
-	at org.hibernate.boot.model.internal.TableBinder.bindExplicitColumns(TableBinder.java:604)
-	at org.hibernate.boot.model.internal.TableBinder.bindForeignKey(TableBinder.java:585)
-	at org.hibernate.boot.model.internal.ToOneFkSecondPass.doSecondPass(ToOneFkSecondPass.java:138)
-	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processEndOfQueue(InFlightMetadataCollectorImpl.java:1868)
-	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processFkSecondPassesInOrder(InFlightMetadataCollectorImpl.java:1818)
-	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processSecondPasses(InFlightMetadataCollectorImpl.java:1731)
-	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.coordinateProcessors(MetadataBuildingProcess.java:357)
-	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:201)
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1392)
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.populateSessionFactoryBuilder(EntityManagerFactoryBuilderImpl.java:1472)
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1454)
-	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:93)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:443)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:436)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:411)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:419)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1864)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1813)
-	... 20 common frames omitted
-2026-04-06 22:46:25.423 [INFO] [restartedMain] [54] Starting KumoApplication using Java 17.0.16 with PID 91443 (/Users/Rainbow_1/IdeaProjects/kumo/target/classes started by pipishrimp in /Users/Rainbow_1/IdeaProjects/kumo)
-2026-04-06 22:46:25.425 [DEBUG] [restartedMain] [55] Running with Spring Boot v4.0.5, Spring v7.0.6
-2026-04-06 22:46:25.425 [INFO] [restartedMain] [652] No active profile set, falling back to 1 default profile: "default"
-2026-04-06 22:46:25.451 [INFO] [restartedMain] [69] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2026-04-06 22:46:25.451 [INFO] [restartedMain] [69] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2026-04-06 22:46:25.746 [INFO] [restartedMain] [145] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-04-06 22:46:25.770 [INFO] [restartedMain] [213] Finished Spring Data repository scanning in 20 ms. Found 4 JPA repository interfaces.
-2026-04-06 22:46:26.059 [INFO] [restartedMain] [114] Tomcat initialized with port 8080 (http)
-2026-04-06 22:46:26.091 [INFO] [restartedMain] [168] Starting service [Tomcat]
-2026-04-06 22:46:26.092 [INFO] [restartedMain] [168] Starting Servlet engine: [Apache Tomcat/11.0.20]
-2026-04-06 22:46:26.113 [INFO] [restartedMain] [77] Root WebApplicationContext: initialization completed in 662 ms
-2026-04-06 22:46:26.193 [INFO] [restartedMain] [109] HikariPool-1 - Starting...
-2026-04-06 22:46:26.459 [INFO] [restartedMain] [580] HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1101817c
-2026-04-06 22:46:26.460 [INFO] [restartedMain] [122] HikariPool-1 - Start completed.
-2026-04-06 22:46:26.478 [INFO] [restartedMain] [102] HHH008540: Processing PersistenceUnitInfo [name: default]
-2026-04-06 22:46:26.510 [INFO] [restartedMain] [41] HHH000001: Hibernate ORM core version 7.2.7.Final
-2026-04-06 22:46:26.751 [INFO] [restartedMain] [129] No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-04-06 22:46:26.837 [WARN] [restartedMain] [152] HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-04-06 22:46:26.845 [INFO] [restartedMain] [179] HHH10001005: Database info:
+2026-04-07 20:19:53.620 [INFO] [restartedMain] [53] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-07 20:19:53.624 [INFO] [restartedMain] [464] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-07 20:19:53.665 [INFO] [restartedMain] [48] Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-07 20:19:53.875 [WARN] [restartedMain] [247] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-07 20:19:54.030 [INFO] [restartedMain] [117] Starting...
+2026-04-07 20:19:54.030 [INFO] [restartedMain] [117] BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@2becd33c]]
+2026-04-07 20:19:54.030 [INFO] [restartedMain] [117] Started.
+2026-04-07 20:19:54.039 [INFO] [restartedMain] [240] Tomcat started on port 8080 (http) with context path '/kumo/api'
+2026-04-07 20:19:54.042 [INFO] [restartedMain] [60] Started KumoApplication in 3.715 seconds (process running for 4.728)
+2026-04-07 20:20:31.076 [INFO] [http-nio-8080-exec-1] [168] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-07 20:20:31.078 [INFO] [http-nio-8080-exec-1] [523] Initializing Servlet 'dispatcherServlet'
+2026-04-07 20:20:31.081 [INFO] [http-nio-8080-exec-1] [545] Completed initialization in 3 ms
+2026-04-07 20:20:54.057 [INFO] [MessageBroker-5] [147] WebSocketSession[1 current WS(1)-HttpStream(0)-HttpPoll(0), 1 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(1)-CONNECTED(1)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 12, active threads = 0, queued tasks = 0, completed tasks = 12], outboundChannel[pool size = 3, active threads = 0, queued tasks = 0, completed tasks = 3], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 2, completed tasks = 5]
+2026-04-07 20:34:45.450 [INFO] [SpringApplicationShutdownHook] [54] Commencing graceful shutdown. Waiting for active requests to complete
+2026-04-07 20:34:45.520 [INFO] [tomcat-shutdown] [76] Graceful shutdown complete
+2026-04-07 20:34:45.536 [INFO] [SpringApplicationShutdownHook] [117] Stopping...
+2026-04-07 20:34:45.537 [INFO] [SpringApplicationShutdownHook] [117] BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@2becd33c]]
+2026-04-07 20:34:45.538 [INFO] [SpringApplicationShutdownHook] [117] Stopped.
+2026-04-07 20:34:45.558 [INFO] [SpringApplicationShutdownHook] [693] Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-07 20:34:45.616 [INFO] [SpringApplicationShutdownHook] [349] HikariPool-1 - Shutdown initiated...
+2026-04-07 20:34:45.651 [INFO] [SpringApplicationShutdownHook] [351] HikariPool-1 - Shutdown completed.
+2026-04-07 21:26:13.913 [INFO] [restartedMain] [54] Starting KumoApplication using Java 17.0.16 with PID 11769 (/Users/Rainbow_1/IdeaProjects/kumo/target/classes started by pipishrimp in /Users/Rainbow_1/IdeaProjects/kumo)
+2026-04-07 21:26:13.915 [DEBUG] [restartedMain] [55] Running with Spring Boot v4.0.5, Spring v7.0.6
+2026-04-07 21:26:13.915 [INFO] [restartedMain] [652] No active profile set, falling back to 1 default profile: "default"
+2026-04-07 21:26:13.941 [INFO] [restartedMain] [69] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-04-07 21:26:13.941 [INFO] [restartedMain] [69] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-04-07 21:26:14.286 [INFO] [restartedMain] [145] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-07 21:26:14.316 [INFO] [restartedMain] [213] Finished Spring Data repository scanning in 22 ms. Found 4 JPA repository interfaces.
+2026-04-07 21:26:14.575 [INFO] [restartedMain] [114] Tomcat initialized with port 8080 (http)
+2026-04-07 21:26:14.611 [INFO] [restartedMain] [168] Starting service [Tomcat]
+2026-04-07 21:26:14.612 [INFO] [restartedMain] [168] Starting Servlet engine: [Apache Tomcat/11.0.20]
+2026-04-07 21:26:14.639 [INFO] [restartedMain] [77] Root WebApplicationContext: initialization completed in 698 ms
+2026-04-07 21:26:14.731 [INFO] [restartedMain] [109] HikariPool-1 - Starting...
+2026-04-07 21:26:15.046 [INFO] [restartedMain] [580] HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3bb484a8
+2026-04-07 21:26:15.047 [INFO] [restartedMain] [122] HikariPool-1 - Start completed.
+2026-04-07 21:26:15.066 [INFO] [restartedMain] [102] HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-04-07 21:26:15.113 [INFO] [restartedMain] [41] HHH000001: Hibernate ORM core version 7.2.7.Final
+2026-04-07 21:26:15.355 [INFO] [restartedMain] [129] No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-07 21:26:15.432 [WARN] [restartedMain] [152] HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-07 21:26:15.441 [INFO] [restartedMain] [179] HHH10001005: Database info:
 	Database JDBC URL [jdbc:mysql://localhost:3307/KUMO]
 	Database driver: MySQL Connector/J
 	Database dialect: MySQLDialect
@@ -117,148 +79,46 @@ Caused by: org.hibernate.DuplicateMappingException: Table [connect_logs] contain
 	Pool: DataSourceConnectionProvider
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2026-04-06 22:46:27.370 [INFO] [restartedMain] [53] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-04-06 22:46:27.373 [INFO] [restartedMain] [464] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-04-06 22:46:27.411 [INFO] [restartedMain] [48] Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-04-06 22:46:27.592 [WARN] [restartedMain] [247] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-04-06 22:46:27.785 [INFO] [restartedMain] [117] Starting...
-2026-04-06 22:46:27.785 [INFO] [restartedMain] [117] BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@114404a2]]
-2026-04-06 22:46:27.785 [INFO] [restartedMain] [117] Started.
-2026-04-06 22:46:27.793 [INFO] [restartedMain] [240] Tomcat started on port 8080 (http) with context path '/kumo/api'
-2026-04-06 22:46:27.797 [INFO] [restartedMain] [60] Started KumoApplication in 2.614 seconds (process running for 3.162)
-2026-04-06 22:47:27.814 [INFO] [MessageBroker-1] [147] WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
-2026-04-06 22:47:29.570 [INFO] [http-nio-8080-exec-1] [168] Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-04-06 22:47:29.570 [INFO] [http-nio-8080-exec-1] [523] Initializing Servlet 'dispatcherServlet'
-2026-04-06 22:47:29.591 [INFO] [http-nio-8080-exec-1] [545] Completed initialization in 21 ms
-2026-04-06 22:47:30.254 [ERROR] [clientInboundChannel-7] [588] Unhandled exception from message handler method
-org.springframework.orm.jpa.JpaSystemException: The database returned no natively generated values : tw.idv.rainbow.web.entity.Devices
-	at org.springframework.orm.jpa.hibernate.HibernateExceptionTranslator.convertHibernateAccessException(HibernateExceptionTranslator.java:223)
-	at org.springframework.orm.jpa.hibernate.HibernateExceptionTranslator.convertHibernateAccessException(HibernateExceptionTranslator.java:131)
-	at org.springframework.orm.jpa.hibernate.HibernateExceptionTranslator.translateExceptionIfPossible(HibernateExceptionTranslator.java:105)
-	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:223)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.translateExceptionIfPossible(AbstractEntityManagerFactoryBean.java:576)
-	at org.springframework.dao.support.ChainedPersistenceExceptionTranslator.translateExceptionIfPossible(ChainedPersistenceExceptionTranslator.java:61)
-	at org.springframework.dao.support.DataAccessUtils.translateIfNecessary(DataAccessUtils.java:346)
-	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:157)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:166)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:222)
-	at jdk.proxy4/jdk.proxy4.$Proxy140.save(Unknown Source)
-	at tw.idv.rainbow.web.service.impl.DeviceServiceImpl.connect(DeviceServiceImpl.java:91)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
-	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:158)
-	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:133)
-	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:371)
-	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:130)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:719)
-	at tw.idv.rainbow.web.service.impl.DeviceServiceImpl$$SpringCGLIB$$0.connect(<generated>)
-	at tw.idv.rainbow.websocket.ConnectController.connect(ConnectController.java:24)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
-	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:168)
-	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:119)
-	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMatch(AbstractMethodMessageHandler.java:560)
-	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:546)
-	at org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler.handleMatch(SimpAnnotationMethodMessageHandler.java:95)
-	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessageInternal(AbstractMethodMessageHandler.java:514)
-	at org.springframework.messaging.handler.invocation.AbstractMethodMessageHandler.handleMessage(AbstractMethodMessageHandler.java:451)
-	at org.springframework.messaging.support.ExecutorSubscribableChannel$SendTask.run(ExecutorSubscribableChannel.java:151)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-Caused by: org.hibernate.HibernateException: The database returned no natively generated values : tw.idv.rainbow.web.entity.Devices
-	at org.hibernate.generator.values.internal.GeneratedValuesHelper.readGeneratedValues(GeneratedValuesHelper.java:161)
-	at org.hibernate.generator.values.internal.GeneratedValuesHelper.getGeneratedValues(GeneratedValuesHelper.java:97)
-	at org.hibernate.id.insert.GetGeneratedKeysDelegate.performMutation(GetGeneratedKeysDelegate.java:108)
-	at org.hibernate.engine.jdbc.mutation.internal.MutationExecutorSingleNonBatched.performNonBatchedOperations(MutationExecutorSingleNonBatched.java:45)
-	at org.hibernate.engine.jdbc.mutation.internal.AbstractMutationExecutor.execute(AbstractMutationExecutor.java:66)
-	at org.hibernate.engine.jdbc.mutation.internal.AbstractMutationExecutor.execute(AbstractMutationExecutor.java:55)
-	at org.hibernate.persister.entity.mutation.InsertCoordinatorStandard.doStaticInserts(InsertCoordinatorStandard.java:180)
-	at org.hibernate.persister.entity.mutation.InsertCoordinatorStandard.coordinateInsert(InsertCoordinatorStandard.java:120)
-	at org.hibernate.persister.entity.mutation.InsertCoordinatorStandard.insert(InsertCoordinatorStandard.java:84)
-	at org.hibernate.action.internal.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:85)
-	at org.hibernate.engine.spi.ActionQueue.execute(ActionQueue.java:667)
-	at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:291)
-	at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:270)
-	at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:322)
-	at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:371)
-	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:285)
-	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:215)
-	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:133)
-	at org.hibernate.event.internal.DefaultPersistEventListener.entityIsTransient(DefaultPersistEventListener.java:144)
-	at org.hibernate.event.internal.DefaultPersistEventListener.persist(DefaultPersistEventListener.java:90)
-	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:74)
-	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:50)
-	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:138)
-	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:692)
-	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:675)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
-	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityHandlerInvocationHandler.invokeMethod(SharedEntityManagerCreator.java:240)
-	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:386)
-	at jdk.proxy4/jdk.proxy4.$Proxy129.persist(Unknown Source)
-	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:664)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
-	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
-	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:278)
-	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:169)
-	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158)
-	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:545)
-	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:290)
-	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:690)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:171)
-	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:146)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:69)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:133)
-	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:371)
-	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:130)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:135)
-	... 35 common frames omitted
-2026-04-06 22:59:01.238 [INFO] [SpringApplicationShutdownHook] [54] Commencing graceful shutdown. Waiting for active requests to complete
-2026-04-06 22:59:01.285 [INFO] [tomcat-shutdown] [76] Graceful shutdown complete
-2026-04-06 22:59:01.324 [INFO] [SpringApplicationShutdownHook] [117] Stopping...
-2026-04-06 22:59:01.325 [INFO] [SpringApplicationShutdownHook] [117] BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@114404a2]]
-2026-04-06 22:59:01.326 [INFO] [SpringApplicationShutdownHook] [117] Stopped.
-2026-04-06 22:59:01.347 [INFO] [SpringApplicationShutdownHook] [693] Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-04-06 22:59:01.400 [INFO] [SpringApplicationShutdownHook] [349] HikariPool-1 - Shutdown initiated...
-2026-04-06 22:59:01.426 [INFO] [SpringApplicationShutdownHook] [351] HikariPool-1 - Shutdown completed.
-2026-04-06 22:59:03.575 [INFO] [restartedMain] [54] Starting KumoApplication using Java 17.0.16 with PID 91949 (/Users/Rainbow_1/IdeaProjects/kumo/target/classes started by pipishrimp in /Users/Rainbow_1/IdeaProjects/kumo)
-2026-04-06 22:59:03.576 [DEBUG] [restartedMain] [55] Running with Spring Boot v4.0.5, Spring v7.0.6
-2026-04-06 22:59:03.576 [INFO] [restartedMain] [652] No active profile set, falling back to 1 default profile: "default"
-2026-04-06 22:59:03.610 [INFO] [restartedMain] [69] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2026-04-06 22:59:03.610 [INFO] [restartedMain] [69] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2026-04-06 22:59:03.945 [INFO] [restartedMain] [145] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-04-06 22:59:03.973 [INFO] [restartedMain] [213] Finished Spring Data repository scanning in 23 ms. Found 4 JPA repository interfaces.
-2026-04-06 22:59:04.280 [INFO] [restartedMain] [114] Tomcat initialized with port 8080 (http)
-2026-04-06 22:59:04.300 [INFO] [restartedMain] [168] Starting service [Tomcat]
-2026-04-06 22:59:04.300 [INFO] [restartedMain] [168] Starting Servlet engine: [Apache Tomcat/11.0.20]
-2026-04-06 22:59:04.342 [INFO] [restartedMain] [77] Root WebApplicationContext: initialization completed in 732 ms
-2026-04-06 22:59:04.419 [INFO] [restartedMain] [109] HikariPool-1 - Starting...
-2026-04-06 22:59:04.661 [INFO] [restartedMain] [580] HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@387d815c
-2026-04-06 22:59:04.662 [INFO] [restartedMain] [122] HikariPool-1 - Start completed.
-2026-04-06 22:59:04.677 [INFO] [restartedMain] [102] HHH008540: Processing PersistenceUnitInfo [name: default]
-2026-04-06 22:59:04.705 [INFO] [restartedMain] [41] HHH000001: Hibernate ORM core version 7.2.7.Final
-2026-04-06 22:59:04.946 [INFO] [restartedMain] [129] No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-04-06 22:59:05.028 [WARN] [restartedMain] [152] HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-04-06 22:59:05.036 [INFO] [restartedMain] [179] HHH10001005: Database info:
+2026-04-07 21:26:15.912 [INFO] [restartedMain] [53] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-07 21:26:15.915 [INFO] [restartedMain] [464] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-07 21:26:15.951 [INFO] [restartedMain] [48] Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-07 21:26:16.384 [WARN] [restartedMain] [247] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-07 21:26:16.525 [INFO] [restartedMain] [117] Starting...
+2026-04-07 21:26:16.526 [INFO] [restartedMain] [117] BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@4b94a779]]
+2026-04-07 21:26:16.526 [INFO] [restartedMain] [117] Started.
+2026-04-07 21:26:16.534 [INFO] [restartedMain] [240] Tomcat started on port 8080 (http) with context path '/kumo/api'
+2026-04-07 21:26:16.538 [INFO] [restartedMain] [60] Started KumoApplication in 2.97 seconds (process running for 3.585)
+2026-04-07 21:26:44.543 [INFO] [http-nio-8080-exec-1] [168] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-07 21:26:44.546 [INFO] [http-nio-8080-exec-1] [523] Initializing Servlet 'dispatcherServlet'
+2026-04-07 21:26:44.558 [INFO] [http-nio-8080-exec-1] [545] Completed initialization in 12 ms
+2026-04-07 21:27:16.553 [INFO] [MessageBroker-1] [147] WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2026-04-07 21:27:33.186 [INFO] [SpringApplicationShutdownHook] [54] Commencing graceful shutdown. Waiting for active requests to complete
+2026-04-07 21:27:33.218 [INFO] [tomcat-shutdown] [76] Graceful shutdown complete
+2026-04-07 21:27:33.221 [INFO] [SpringApplicationShutdownHook] [117] Stopping...
+2026-04-07 21:27:33.222 [INFO] [SpringApplicationShutdownHook] [117] BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@4b94a779]]
+2026-04-07 21:27:33.222 [INFO] [SpringApplicationShutdownHook] [117] Stopped.
+2026-04-07 21:27:33.228 [INFO] [SpringApplicationShutdownHook] [693] Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-07 21:27:33.235 [INFO] [SpringApplicationShutdownHook] [349] HikariPool-1 - Shutdown initiated...
+2026-04-07 21:27:33.244 [INFO] [SpringApplicationShutdownHook] [351] HikariPool-1 - Shutdown completed.
+2026-04-07 22:21:49.092 [INFO] [restartedMain] [54] Starting KumoApplication using Java 17.0.16 with PID 12107 (/Users/Rainbow_1/IdeaProjects/kumo/target/classes started by pipishrimp in /Users/Rainbow_1/IdeaProjects/kumo)
+2026-04-07 22:21:49.094 [DEBUG] [restartedMain] [55] Running with Spring Boot v4.0.5, Spring v7.0.6
+2026-04-07 22:21:49.094 [INFO] [restartedMain] [652] No active profile set, falling back to 1 default profile: "default"
+2026-04-07 22:21:49.116 [INFO] [restartedMain] [69] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-04-07 22:21:49.116 [INFO] [restartedMain] [69] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-04-07 22:21:49.443 [INFO] [restartedMain] [145] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-07 22:21:49.475 [INFO] [restartedMain] [213] Finished Spring Data repository scanning in 20 ms. Found 4 JPA repository interfaces.
+2026-04-07 22:21:49.697 [INFO] [restartedMain] [114] Tomcat initialized with port 8080 (http)
+2026-04-07 22:21:49.704 [INFO] [restartedMain] [168] Starting service [Tomcat]
+2026-04-07 22:21:49.704 [INFO] [restartedMain] [168] Starting Servlet engine: [Apache Tomcat/11.0.20]
+2026-04-07 22:21:49.719 [INFO] [restartedMain] [77] Root WebApplicationContext: initialization completed in 603 ms
+2026-04-07 22:21:49.785 [INFO] [restartedMain] [109] HikariPool-1 - Starting...
+2026-04-07 22:21:50.122 [INFO] [restartedMain] [580] HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7f7e395c
+2026-04-07 22:21:50.123 [INFO] [restartedMain] [122] HikariPool-1 - Start completed.
+2026-04-07 22:21:50.139 [INFO] [restartedMain] [102] HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-04-07 22:21:50.169 [INFO] [restartedMain] [41] HHH000001: Hibernate ORM core version 7.2.7.Final
+2026-04-07 22:21:50.385 [INFO] [restartedMain] [129] No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-07 22:21:50.484 [WARN] [restartedMain] [152] HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-07 22:21:50.494 [INFO] [restartedMain] [179] HHH10001005: Database info:
 	Database JDBC URL [jdbc:mysql://localhost:3307/KUMO]
 	Database driver: MySQL Connector/J
 	Database dialect: MySQLDialect
@@ -270,46 +130,46 @@ Caused by: org.hibernate.HibernateException: The database returned no natively g
 	Pool: DataSourceConnectionProvider
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2026-04-06 22:59:05.539 [INFO] [restartedMain] [53] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-04-06 22:59:05.542 [INFO] [restartedMain] [464] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-04-06 22:59:05.585 [INFO] [restartedMain] [48] Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-04-06 22:59:05.781 [WARN] [restartedMain] [247] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-04-06 22:59:05.950 [INFO] [restartedMain] [117] Starting...
-2026-04-06 22:59:05.951 [INFO] [restartedMain] [117] BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@6b0a98c9]]
-2026-04-06 22:59:05.951 [INFO] [restartedMain] [117] Started.
-2026-04-06 22:59:05.958 [INFO] [restartedMain] [240] Tomcat started on port 8080 (http) with context path '/kumo/api'
-2026-04-06 22:59:05.961 [INFO] [restartedMain] [60] Started KumoApplication in 2.598 seconds (process running for 3.211)
-2026-04-06 22:59:41.650 [INFO] [http-nio-8080-exec-1] [168] Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-04-06 22:59:41.652 [INFO] [http-nio-8080-exec-1] [523] Initializing Servlet 'dispatcherServlet'
-2026-04-06 22:59:41.661 [INFO] [http-nio-8080-exec-1] [545] Completed initialization in 9 ms
-2026-04-06 23:00:05.979 [INFO] [MessageBroker-4] [147] WebSocketSession[1 current WS(1)-HttpStream(0)-HttpPoll(0), 1 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(1)-CONNECTED(1)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 9, active threads = 0, queued tasks = 0, completed tasks = 9], outboundChannel[pool size = 1, active threads = 0, queued tasks = 0, completed tasks = 1], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 2, completed tasks = 5]
-2026-04-06 23:04:29.359 [INFO] [SpringApplicationShutdownHook] [54] Commencing graceful shutdown. Waiting for active requests to complete
-2026-04-06 23:04:29.452 [INFO] [tomcat-shutdown] [76] Graceful shutdown complete
-2026-04-06 23:04:29.547 [INFO] [SpringApplicationShutdownHook] [117] Stopping...
-2026-04-06 23:04:29.547 [INFO] [SpringApplicationShutdownHook] [117] BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@6b0a98c9]]
-2026-04-06 23:04:29.547 [INFO] [SpringApplicationShutdownHook] [117] Stopped.
-2026-04-06 23:04:29.647 [INFO] [SpringApplicationShutdownHook] [693] Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-04-06 23:04:29.740 [INFO] [SpringApplicationShutdownHook] [349] HikariPool-1 - Shutdown initiated...
-2026-04-06 23:04:29.795 [INFO] [SpringApplicationShutdownHook] [351] HikariPool-1 - Shutdown completed.
-2026-04-06 23:08:11.965 [INFO] [restartedMain] [54] Starting KumoApplication using Java 17.0.16 with PID 92825 (/Users/Rainbow_1/IdeaProjects/kumo/target/classes started by pipishrimp in /Users/Rainbow_1/IdeaProjects/kumo)
-2026-04-06 23:08:11.968 [DEBUG] [restartedMain] [55] Running with Spring Boot v4.0.5, Spring v7.0.6
-2026-04-06 23:08:11.968 [INFO] [restartedMain] [652] No active profile set, falling back to 1 default profile: "default"
-2026-04-06 23:08:11.991 [INFO] [restartedMain] [69] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2026-04-06 23:08:11.992 [INFO] [restartedMain] [69] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2026-04-06 23:08:13.154 [INFO] [restartedMain] [145] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-04-06 23:08:13.293 [INFO] [restartedMain] [213] Finished Spring Data repository scanning in 115 ms. Found 4 JPA repository interfaces.
-2026-04-06 23:08:13.860 [INFO] [restartedMain] [114] Tomcat initialized with port 8080 (http)
-2026-04-06 23:08:13.874 [INFO] [restartedMain] [168] Starting service [Tomcat]
-2026-04-06 23:08:13.874 [INFO] [restartedMain] [168] Starting Servlet engine: [Apache Tomcat/11.0.20]
-2026-04-06 23:08:13.900 [INFO] [restartedMain] [77] Root WebApplicationContext: initialization completed in 1907 ms
-2026-04-06 23:08:14.102 [INFO] [restartedMain] [109] HikariPool-1 - Starting...
-2026-04-06 23:08:14.505 [INFO] [restartedMain] [580] HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@24df97de
-2026-04-06 23:08:14.508 [INFO] [restartedMain] [122] HikariPool-1 - Start completed.
-2026-04-06 23:08:14.538 [INFO] [restartedMain] [102] HHH008540: Processing PersistenceUnitInfo [name: default]
-2026-04-06 23:08:14.573 [INFO] [restartedMain] [41] HHH000001: Hibernate ORM core version 7.2.7.Final
-2026-04-06 23:08:14.844 [INFO] [restartedMain] [129] No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-04-06 23:08:14.940 [WARN] [restartedMain] [152] HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-04-06 23:08:14.947 [INFO] [restartedMain] [179] HHH10001005: Database info:
+2026-04-07 22:21:51.029 [INFO] [restartedMain] [53] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-07 22:21:51.036 [INFO] [restartedMain] [464] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-07 22:21:51.077 [INFO] [restartedMain] [48] Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-07 22:21:51.541 [WARN] [restartedMain] [247] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-07 22:21:51.700 [INFO] [restartedMain] [117] Starting...
+2026-04-07 22:21:51.700 [INFO] [restartedMain] [117] BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@57440588]]
+2026-04-07 22:21:51.701 [INFO] [restartedMain] [117] Started.
+2026-04-07 22:21:51.712 [INFO] [restartedMain] [240] Tomcat started on port 8080 (http) with context path '/kumo/api'
+2026-04-07 22:21:51.716 [INFO] [restartedMain] [60] Started KumoApplication in 2.831 seconds (process running for 3.37)
+2026-04-07 22:21:58.775 [INFO] [http-nio-8080-exec-2] [168] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-07 22:21:58.777 [INFO] [http-nio-8080-exec-2] [523] Initializing Servlet 'dispatcherServlet'
+2026-04-07 22:21:58.781 [INFO] [http-nio-8080-exec-2] [545] Completed initialization in 4 ms
+2026-04-07 22:22:51.725 [INFO] [MessageBroker-1] [147] WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2026-04-07 22:34:11.277 [INFO] [SpringApplicationShutdownHook] [54] Commencing graceful shutdown. Waiting for active requests to complete
+2026-04-07 22:34:11.353 [INFO] [tomcat-shutdown] [76] Graceful shutdown complete
+2026-04-07 22:34:11.382 [INFO] [SpringApplicationShutdownHook] [117] Stopping...
+2026-04-07 22:34:11.383 [INFO] [SpringApplicationShutdownHook] [117] BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@57440588]]
+2026-04-07 22:34:11.383 [INFO] [SpringApplicationShutdownHook] [117] Stopped.
+2026-04-07 22:34:11.414 [INFO] [SpringApplicationShutdownHook] [693] Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-07 22:34:11.482 [INFO] [SpringApplicationShutdownHook] [349] HikariPool-1 - Shutdown initiated...
+2026-04-07 22:34:11.515 [INFO] [SpringApplicationShutdownHook] [351] HikariPool-1 - Shutdown completed.
+2026-04-07 22:41:23.269 [INFO] [restartedMain] [54] Starting KumoApplication using Java 17.0.16 with PID 12628 (/Users/Rainbow_1/IdeaProjects/kumo/target/classes started by pipishrimp in /Users/Rainbow_1/IdeaProjects/kumo)
+2026-04-07 22:41:23.272 [DEBUG] [restartedMain] [55] Running with Spring Boot v4.0.5, Spring v7.0.6
+2026-04-07 22:41:23.273 [INFO] [restartedMain] [652] No active profile set, falling back to 1 default profile: "default"
+2026-04-07 22:41:23.298 [INFO] [restartedMain] [69] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-04-07 22:41:23.299 [INFO] [restartedMain] [69] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-04-07 22:41:23.665 [INFO] [restartedMain] [145] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-07 22:41:23.699 [INFO] [restartedMain] [213] Finished Spring Data repository scanning in 25 ms. Found 4 JPA repository interfaces.
+2026-04-07 22:41:23.977 [INFO] [restartedMain] [114] Tomcat initialized with port 8080 (http)
+2026-04-07 22:41:23.984 [INFO] [restartedMain] [168] Starting service [Tomcat]
+2026-04-07 22:41:23.984 [INFO] [restartedMain] [168] Starting Servlet engine: [Apache Tomcat/11.0.20]
+2026-04-07 22:41:23.999 [INFO] [restartedMain] [77] Root WebApplicationContext: initialization completed in 700 ms
+2026-04-07 22:41:24.067 [INFO] [restartedMain] [109] HikariPool-1 - Starting...
+2026-04-07 22:41:24.354 [INFO] [restartedMain] [580] HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7ef7fe3f
+2026-04-07 22:41:24.355 [INFO] [restartedMain] [122] HikariPool-1 - Start completed.
+2026-04-07 22:41:24.372 [INFO] [restartedMain] [102] HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-04-07 22:41:24.404 [INFO] [restartedMain] [41] HHH000001: Hibernate ORM core version 7.2.7.Final
+2026-04-07 22:41:24.637 [INFO] [restartedMain] [129] No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-07 22:41:24.725 [WARN] [restartedMain] [152] HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-07 22:41:24.732 [INFO] [restartedMain] [179] HHH10001005: Database info:
 	Database JDBC URL [jdbc:mysql://localhost:3307/KUMO]
 	Database driver: MySQL Connector/J
 	Database dialect: MySQLDialect
@@ -321,121 +181,24 @@ Caused by: org.hibernate.HibernateException: The database returned no natively g
 	Pool: DataSourceConnectionProvider
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2026-04-06 23:08:15.433 [INFO] [restartedMain] [53] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-04-06 23:08:15.436 [INFO] [restartedMain] [464] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-04-06 23:08:15.478 [INFO] [restartedMain] [48] Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-04-06 23:08:15.660 [WARN] [restartedMain] [247] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-04-06 23:08:15.814 [INFO] [restartedMain] [117] Starting...
-2026-04-06 23:08:15.815 [INFO] [restartedMain] [117] BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@4d0f51cd]]
-2026-04-06 23:08:15.815 [INFO] [restartedMain] [117] Started.
-2026-04-06 23:08:15.822 [INFO] [restartedMain] [240] Tomcat started on port 8080 (http) with context path '/kumo/api'
-2026-04-06 23:08:15.825 [INFO] [restartedMain] [60] Started KumoApplication in 4.315 seconds (process running for 5.189)
-2026-04-06 23:08:39.138 [INFO] [http-nio-8080-exec-1] [168] Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-04-06 23:08:39.139 [INFO] [http-nio-8080-exec-1] [523] Initializing Servlet 'dispatcherServlet'
-2026-04-06 23:08:39.150 [INFO] [http-nio-8080-exec-1] [545] Completed initialization in 11 ms
-2026-04-06 23:09:15.838 [INFO] [MessageBroker-8] [147] WebSocketSession[1 current WS(1)-HttpStream(0)-HttpPoll(0), 1 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(1)-CONNECTED(1)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 9, active threads = 0, queued tasks = 0, completed tasks = 9], outboundChannel[pool size = 1, active threads = 0, queued tasks = 0, completed tasks = 1], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 2, completed tasks = 9]
-2026-04-06 23:12:22.397 [INFO] [File Watcher] [214] Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
-2026-04-06 23:12:22.502 [INFO] [Thread-1] [54] Commencing graceful shutdown. Waiting for active requests to complete
-2026-04-06 23:12:22.518 [INFO] [tomcat-shutdown] [76] Graceful shutdown complete
-2026-04-06 23:12:22.543 [INFO] [Thread-1] [117] Stopping...
-2026-04-06 23:12:22.544 [INFO] [Thread-1] [117] BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@4d0f51cd]]
-2026-04-06 23:12:22.544 [INFO] [Thread-1] [117] Stopped.
-2026-04-06 23:12:22.558 [INFO] [Thread-1] [693] Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-04-06 23:12:22.604 [INFO] [Thread-1] [349] HikariPool-1 - Shutdown initiated...
-2026-04-06 23:12:22.648 [INFO] [Thread-1] [351] HikariPool-1 - Shutdown completed.
-2026-04-06 23:12:23.047 [INFO] [restartedMain] [54] Starting KumoApplication using Java 17.0.16 with PID 92825 (/Users/Rainbow_1/IdeaProjects/kumo/target/classes started by pipishrimp in /Users/Rainbow_1/IdeaProjects/kumo)
-2026-04-06 23:12:23.047 [DEBUG] [restartedMain] [55] Running with Spring Boot v4.0.5, Spring v7.0.6
-2026-04-06 23:12:23.047 [INFO] [restartedMain] [652] No active profile set, falling back to 1 default profile: "default"
-2026-04-06 23:12:23.151 [INFO] [restartedMain] [145] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-04-06 23:12:23.158 [INFO] [restartedMain] [213] Finished Spring Data repository scanning in 6 ms. Found 4 JPA repository interfaces.
-2026-04-06 23:12:23.219 [INFO] [restartedMain] [114] Tomcat initialized with port 8080 (http)
-2026-04-06 23:12:23.219 [INFO] [restartedMain] [168] Starting service [Tomcat]
-2026-04-06 23:12:23.219 [INFO] [restartedMain] [168] Starting Servlet engine: [Apache Tomcat/11.0.20]
-2026-04-06 23:12:23.225 [INFO] [restartedMain] [77] Root WebApplicationContext: initialization completed in 177 ms
-2026-04-06 23:12:23.241 [INFO] [restartedMain] [109] HikariPool-2 - Starting...
-2026-04-06 23:12:23.338 [INFO] [restartedMain] [580] HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1d07c228
-2026-04-06 23:12:23.338 [INFO] [restartedMain] [122] HikariPool-2 - Start completed.
-2026-04-06 23:12:23.339 [INFO] [restartedMain] [102] HHH008540: Processing PersistenceUnitInfo [name: default]
-2026-04-06 23:12:23.351 [INFO] [restartedMain] [129] No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-04-06 23:12:23.354 [WARN] [restartedMain] [152] HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-04-06 23:12:23.355 [INFO] [restartedMain] [179] HHH10001005: Database info:
-	Database JDBC URL [jdbc:mysql://localhost:3307/KUMO]
-	Database driver: MySQL Connector/J
-	Database dialect: MySQLDialect
-	Database version: 8.0.36
-	Default catalog/schema: KUMO/undefined
-	Autocommit mode: undefined/unknown
-	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
-	JDBC fetch size: none
-	Pool: DataSourceConnectionProvider
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2026-04-06 23:12:23.405 [INFO] [restartedMain] [53] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-04-06 23:12:23.406 [INFO] [restartedMain] [464] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-04-06 23:12:23.524 [WARN] [restartedMain] [247] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-04-06 23:12:23.616 [INFO] [restartedMain] [117] Starting...
-2026-04-06 23:12:23.616 [INFO] [restartedMain] [117] BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@7d22594]]
-2026-04-06 23:12:23.616 [INFO] [restartedMain] [117] Started.
-2026-04-06 23:12:23.618 [INFO] [restartedMain] [240] Tomcat started on port 8080 (http) with context path '/kumo/api'
-2026-04-06 23:12:23.621 [INFO] [restartedMain] [60] Started KumoApplication in 0.593 seconds (process running for 253.001)
-2026-04-06 23:12:23.624 [INFO] [restartedMain] [66] Condition evaluation unchanged
-2026-04-06 23:12:26.555 [INFO] [SpringApplicationShutdownHook] [54] Commencing graceful shutdown. Waiting for active requests to complete
-2026-04-06 23:12:26.568 [INFO] [tomcat-shutdown] [76] Graceful shutdown complete
-2026-04-06 23:12:26.573 [INFO] [SpringApplicationShutdownHook] [117] Stopping...
-2026-04-06 23:12:26.573 [INFO] [SpringApplicationShutdownHook] [117] BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@7d22594]]
-2026-04-06 23:12:26.573 [INFO] [SpringApplicationShutdownHook] [117] Stopped.
-2026-04-06 23:12:26.579 [INFO] [SpringApplicationShutdownHook] [693] Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-04-06 23:12:26.581 [INFO] [SpringApplicationShutdownHook] [349] HikariPool-2 - Shutdown initiated...
-2026-04-06 23:12:26.605 [INFO] [SpringApplicationShutdownHook] [351] HikariPool-2 - Shutdown completed.
-2026-04-06 23:12:29.218 [INFO] [restartedMain] [54] Starting KumoApplication using Java 17.0.16 with PID 92938 (/Users/Rainbow_1/IdeaProjects/kumo/target/classes started by pipishrimp in /Users/Rainbow_1/IdeaProjects/kumo)
-2026-04-06 23:12:29.219 [DEBUG] [restartedMain] [55] Running with Spring Boot v4.0.5, Spring v7.0.6
-2026-04-06 23:12:29.219 [INFO] [restartedMain] [652] No active profile set, falling back to 1 default profile: "default"
-2026-04-06 23:12:29.252 [INFO] [restartedMain] [69] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2026-04-06 23:12:29.253 [INFO] [restartedMain] [69] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2026-04-06 23:12:29.590 [INFO] [restartedMain] [145] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-04-06 23:12:29.626 [INFO] [restartedMain] [213] Finished Spring Data repository scanning in 29 ms. Found 4 JPA repository interfaces.
-2026-04-06 23:12:29.873 [INFO] [restartedMain] [114] Tomcat initialized with port 8080 (http)
-2026-04-06 23:12:29.880 [INFO] [restartedMain] [168] Starting service [Tomcat]
-2026-04-06 23:12:29.881 [INFO] [restartedMain] [168] Starting Servlet engine: [Apache Tomcat/11.0.20]
-2026-04-06 23:12:29.897 [INFO] [restartedMain] [77] Root WebApplicationContext: initialization completed in 644 ms
-2026-04-06 23:12:29.969 [INFO] [restartedMain] [109] HikariPool-1 - Starting...
-2026-04-06 23:12:30.165 [INFO] [restartedMain] [580] HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@433d5450
-2026-04-06 23:12:30.166 [INFO] [restartedMain] [122] HikariPool-1 - Start completed.
-2026-04-06 23:12:30.180 [INFO] [restartedMain] [102] HHH008540: Processing PersistenceUnitInfo [name: default]
-2026-04-06 23:12:30.211 [INFO] [restartedMain] [41] HHH000001: Hibernate ORM core version 7.2.7.Final
-2026-04-06 23:12:30.423 [INFO] [restartedMain] [129] No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-04-06 23:12:30.492 [WARN] [restartedMain] [152] HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-04-06 23:12:30.499 [INFO] [restartedMain] [179] HHH10001005: Database info:
-	Database JDBC URL [jdbc:mysql://localhost:3307/KUMO]
-	Database driver: MySQL Connector/J
-	Database dialect: MySQLDialect
-	Database version: 8.0.36
-	Default catalog/schema: KUMO/undefined
-	Autocommit mode: undefined/unknown
-	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
-	JDBC fetch size: none
-	Pool: DataSourceConnectionProvider
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2026-04-06 23:12:30.984 [INFO] [restartedMain] [53] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-04-06 23:12:30.988 [INFO] [restartedMain] [464] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-04-06 23:12:31.030 [INFO] [restartedMain] [48] Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-04-06 23:12:31.203 [WARN] [restartedMain] [247] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-04-06 23:12:31.355 [INFO] [restartedMain] [117] Starting...
-2026-04-06 23:12:31.355 [INFO] [restartedMain] [117] BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@29fb14d9]]
-2026-04-06 23:12:31.355 [INFO] [restartedMain] [117] Started.
-2026-04-06 23:12:31.362 [INFO] [restartedMain] [240] Tomcat started on port 8080 (http) with context path '/kumo/api'
-2026-04-06 23:12:31.366 [INFO] [restartedMain] [60] Started KumoApplication in 2.432 seconds (process running for 2.94)
-2026-04-06 23:13:19.201 [INFO] [http-nio-8080-exec-1] [168] Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-04-06 23:13:19.206 [INFO] [http-nio-8080-exec-1] [523] Initializing Servlet 'dispatcherServlet'
-2026-04-06 23:13:19.229 [INFO] [http-nio-8080-exec-1] [545] Completed initialization in 23 ms
-2026-04-06 23:13:31.377 [INFO] [MessageBroker-4] [147] WebSocketSession[1 current WS(1)-HttpStream(0)-HttpPoll(0), 1 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(1)-CONNECTED(1)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 9, active threads = 0, queued tasks = 0, completed tasks = 9], outboundChannel[pool size = 2, active threads = 0, queued tasks = 0, completed tasks = 2], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 2, completed tasks = 3]
-2026-04-06 23:43:33.383 [INFO] [MessageBroker-7] [147] WebSocketSession[1 current WS(1)-HttpStream(0)-HttpPoll(0), 5 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(5)-CONNECTED(5)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 9, active threads = 0, queued tasks = 0, completed tasks = 81], outboundChannel[pool size = 2, active threads = 0, queued tasks = 0, completed tasks = 22], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 2, completed tasks = 462]
-2026-04-06 23:45:24.657 [INFO] [SpringApplicationShutdownHook] [54] Commencing graceful shutdown. Waiting for active requests to complete
-2026-04-06 23:45:24.747 [INFO] [tomcat-shutdown] [76] Graceful shutdown complete
-2026-04-06 23:45:24.764 [INFO] [SpringApplicationShutdownHook] [117] Stopping...
-2026-04-06 23:45:24.767 [INFO] [SpringApplicationShutdownHook] [117] BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@29fb14d9]]
-2026-04-06 23:45:24.768 [INFO] [SpringApplicationShutdownHook] [117] Stopped.
-2026-04-06 23:45:24.796 [INFO] [SpringApplicationShutdownHook] [693] Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-04-06 23:45:24.853 [INFO] [SpringApplicationShutdownHook] [349] HikariPool-1 - Shutdown initiated...
-2026-04-06 23:45:24.894 [INFO] [SpringApplicationShutdownHook] [351] HikariPool-1 - Shutdown completed.
+2026-04-07 22:41:25.508 [INFO] [restartedMain] [53] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-07 22:41:25.513 [INFO] [restartedMain] [464] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-07 22:41:25.581 [INFO] [restartedMain] [48] Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-07 22:41:28.865 [WARN] [restartedMain] [247] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-07 22:41:29.182 [INFO] [restartedMain] [117] Starting...
+2026-04-07 22:41:29.182 [INFO] [restartedMain] [117] BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@27dd143a]]
+2026-04-07 22:41:29.183 [INFO] [restartedMain] [117] Started.
+2026-04-07 22:41:29.195 [INFO] [restartedMain] [240] Tomcat started on port 8080 (http) with context path '/kumo/api'
+2026-04-07 22:41:29.201 [INFO] [restartedMain] [60] Started KumoApplication in 6.195 seconds (process running for 6.786)
+2026-04-07 22:42:29.209 [INFO] [MessageBroker-1] [147] WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2026-04-07 22:43:26.183 [INFO] [http-nio-8080-exec-1] [168] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-07 22:43:26.184 [INFO] [http-nio-8080-exec-1] [523] Initializing Servlet 'dispatcherServlet'
+2026-04-07 22:43:26.189 [INFO] [http-nio-8080-exec-1] [545] Completed initialization in 5 ms
+2026-04-07 22:44:25.470 [INFO] [SpringApplicationShutdownHook] [54] Commencing graceful shutdown. Waiting for active requests to complete
+2026-04-07 22:44:25.489 [INFO] [tomcat-shutdown] [76] Graceful shutdown complete
+2026-04-07 22:44:25.492 [INFO] [SpringApplicationShutdownHook] [117] Stopping...
+2026-04-07 22:44:25.492 [INFO] [SpringApplicationShutdownHook] [117] BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@27dd143a]]
+2026-04-07 22:44:25.492 [INFO] [SpringApplicationShutdownHook] [117] Stopped.
+2026-04-07 22:44:25.498 [INFO] [SpringApplicationShutdownHook] [693] Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-07 22:44:25.507 [INFO] [SpringApplicationShutdownHook] [349] HikariPool-1 - Shutdown initiated...
+2026-04-07 22:44:25.515 [INFO] [SpringApplicationShutdownHook] [351] HikariPool-1 - Shutdown completed.
