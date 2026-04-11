@@ -20,14 +20,12 @@ public class ConnectController {
 
     @MessageMapping("/device/{sn}")
     public void connect(@DestinationVariable String sn, DeviceDTO deviceDTO){
-        System.out.println("後端收到");
         ConnectResponseDTO response = deviceService.connect(deviceDTO);
         if(response != null && response.getMessage() == null){
             if(response.getCampaignDTO() != null){
                 response.setMessage("received");
             }
         }
-        System.out.println("後端回覆");
         messagingTemplate.convertAndSend("/msg/"+sn,response);
     }
 }

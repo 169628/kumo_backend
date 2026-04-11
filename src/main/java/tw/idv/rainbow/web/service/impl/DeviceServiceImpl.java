@@ -2,6 +2,7 @@ package tw.idv.rainbow.web.service.impl;
 
 import com.aventrix.jnanoid.jnanoid.NanoIdUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import tw.idv.rainbow.web.dto.CampaignDTO;
@@ -18,9 +19,11 @@ import tw.idv.rainbow.web.repository.DevicesRepository;
 import tw.idv.rainbow.web.repository.StatusRefRepository;
 import tw.idv.rainbow.web.service.DeviceService;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.TimeUnit;
 
 @Service
 @Transactional
@@ -34,7 +37,8 @@ public class DeviceServiceImpl implements DeviceService {
     private CampaignsRepository campaignsRepository;
     @Autowired
     private StatusRefRepository statusRefRepository;
-
+    @Autowired
+    private RedisTemplate<Object, Object> redisTemplate;
 
 
     @Override
@@ -49,7 +53,6 @@ public class DeviceServiceImpl implements DeviceService {
         String status = deviceDTO.getStatus();
 
         //check column
-        System.out.println("service 檢查");
         if (brand == null) {
             response.setMessage("Brand is required");
             return response;
@@ -83,7 +86,6 @@ public class DeviceServiceImpl implements DeviceService {
         }
 
         // check device
-        System.out.println("service 檢查 device");
         Devices device = deviceRepository.findBySn(sn);
         if (device == null) {
             device = new Devices();
@@ -100,7 +102,6 @@ public class DeviceServiceImpl implements DeviceService {
         }
 
         // check campaign
-        System.out.println("service 檢查 campaign");
         if (deviceDTO.getSession() == null) {
             String session = NanoIdUtils.randomNanoId();
             connectLog.setSessionId(session);
@@ -108,6 +109,10 @@ public class DeviceServiceImpl implements DeviceService {
             connectLog.setStatusId(1);
             connectLog.setSv(sv);
             connectLogsRepository.save(connectLog);
+            // save redis
+            String key = brand + ":" + "received" + ":" + LocalDate.now();
+            redisTemplate.opsForSet().add(key,sn);
+            redisTemplate.expire(key, 30, TimeUnit.DAYS);
             List<Campaigns> campaigns = campaignsRepository.findByBrandAndModelAndSvAndIsEnabledIsTrueAndIsDeletedIsFalseOrderByUpdateAtDesc(brand, model, sv);
             if (campaigns == null || campaigns.isEmpty()) {
                 response.setMessage("no match campaign");
@@ -132,7 +137,6 @@ public class DeviceServiceImpl implements DeviceService {
         } else {
 
             //check status
-            System.out.println("service 檢查 status");
             if (status == null) {
                 response.setMessage("Status is required");
                 return response;
