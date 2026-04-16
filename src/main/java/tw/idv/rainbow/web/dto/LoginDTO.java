@@ -7,9 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ConnectResponseDTO {
-    private String session;
-    private String status;
-    private String message;
-    private CampaignDTO campaignDTO;
+public class LoginDTO {
+    private String username;
+    private String password;
 }

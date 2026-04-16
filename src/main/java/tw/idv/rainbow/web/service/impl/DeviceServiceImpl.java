@@ -96,7 +96,7 @@ public class DeviceServiceImpl implements DeviceService {
         } else {
             //比較 brand/model
             if (!Objects.equals(device.getBrand(), brand) || !Objects.equals(device.getModel(), model)) {
-                response.setMessage("wrong device");
+                response.setMessage("Wrong device");
                 return response;
             }
         }
@@ -115,22 +115,23 @@ public class DeviceServiceImpl implements DeviceService {
             redisTemplate.expire(key, 30, TimeUnit.DAYS);
             List<Campaigns> campaigns = campaignsRepository.findByBrandAndModelAndSvAndIsEnabledIsTrueAndIsDeletedIsFalseOrderByUpdateAtDesc(brand, model, sv);
             if (campaigns == null || campaigns.isEmpty()) {
-                response.setMessage("no match campaign");
+                response.setMessage("No match campaign");
                 return response;
             } else {
                 Campaigns campaign = campaigns.get(0);
                 if (campaign.getIsTestMode()) {
                     List<String> testList = campaign.getTestList();
                     if (testList == null || testList.isEmpty()) {
-                        response.setMessage("no test list");
+                        response.setMessage("No test list");
                         return response;
                     } else if (!testList.contains(sn)){
-                        response.setMessage("permission denied");
+                        response.setMessage("Permission denied");
                         return response;
                     }
                 }
                 CampaignDTO campaignDTO = CampaignDTO.toDTO(campaign);
                 response.setSession(session);
+                response.setStatus("received");
                 response.setCampaignDTO(campaignDTO);
                 return response;
             }
@@ -154,7 +155,10 @@ public class DeviceServiceImpl implements DeviceService {
             connectLog.setSv(sv);
             connectLogsRepository.save(connectLog);
 
-            response.setSession(deviceDTO.getSession());
+            if(!Objects.equals(status,"succeeded") && !Objects.equals(status,"failed")){
+                response.setSession(deviceDTO.getSession());
+            }
+            response.setStatus(status);
             return response;
         }
     }
