@@ -54,7 +54,7 @@ Kumo 是一套 OTA（Over-The-Air）韌體更新管理平台，整個系統由�
 
 ## ER Model 圖
 
-![ER Model](docs/%E6%88%AA%E5%9C%96%202026-04-18%2018.30.56.png))
+![ER Model](docs/%E6%88%AA%E5%9C%96%202026-04-18%2018.30.56.png)
 
 
 **資料表說明：**
