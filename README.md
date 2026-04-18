@@ -29,6 +29,7 @@ Kumo 是一套 OTA（Over-The-Air）韌體更新管理平台，整個系統由�
 | `kumo_backend` (本 Repo) | Spring Boot 後端，提供 REST API 與 WebSocket 服務 |
 | `kumo_frontend` | 管理後台前端，供管理員操作 Campaign、查看裝置狀態與報表 |
 | `kumo_demo_device` | 裝置端前端模擬器，模擬 IoT 裝置透過 WebSocket 回報更新狀態 |
+| `kumo_deploy` | 使用 docker compose 快速在本地端部署 |
 
 **核心功能：**
 - 裝置連線與韌體版本回報（WebSocket / STOMP）
@@ -137,198 +138,19 @@ kumo/
 
 ---
 
-## 相關前端專案
+## 其他相關專案
 
 | 名稱 | Repo | 說明 |
 |--|------|------|
 | `kumo_frontend` | https://github.com/169628/kumo_frontend | 管理員操作介面，Campaign CRUD、裝置清單、報表儀表板 |
 | `kumo_demo_device`  | https://github.com/169628/kumo_demo_device | 模擬 IoT 裝置，透過 WebSocket 連線並回報更新狀態 |
+| `kumo_deploy`  | https://github.com/169628/kumo_deploy| 使用 docker compose 快速在本地端部署 |
 
 ---
 
 ## 安裝與啟動
 
-### 前置需求
-
-- Java 17+
-- Maven 3.8+
-- Docker & Docker Compose
-
----
-
-### Step 1 — 啟動資料庫（MySQL + Redis）
-
-建立 `docker-compose.yml`（若尚未存在）：
-
-```yaml
-version: '3.8'
-services:
-  mysql:
-    image: mysql:8.0
-    container_name: kumo-mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: 123456
-      MYSQL_DATABASE: KUMO
-    ports:
-      - "3307:3306"
-    volumes:
-      - kumo-mysql-data:/var/lib/mysql
-
-  redis:
-    image: redis:7.0
-    container_name: kumo-redis
-    command: redis-server --requirepass mypassword
-    ports:
-      - "6379:6379"
-
-volumes:
-  kumo-mysql-data:
-```
-
-啟動容器：
-
-```bash
-docker compose up -d
-```
-
-確認容器正在運行：
-
-```bash
-docker ps
-```
-
----
-
-### Step 2 — 建立資料表
-
-連線至 MySQL 容器後執行以下 SQL：
-
-```bash
-docker exec -it kumo-mysql mysql -uroot -p123456 KUMO
-```
-
-```sql
--- 裝置狀態參照表
-CREATE TABLE status_ref (
-    status_id INT AUTO_INCREMENT PRIMARY KEY,
-    status    VARCHAR(50) NOT NULL
-);
-
--- 下載方式參照表
-CREATE TABLE download_by_ref (
-    download_by_id SMALLINT AUTO_INCREMENT PRIMARY KEY,
-    content        VARCHAR(100) NOT NULL
-);
-
--- 裝置資料表
-CREATE TABLE devices (
-    device_id     BIGINT AUTO_INCREMENT PRIMARY KEY,
-    sn            VARCHAR(100)  NOT NULL,
-    brand         VARCHAR(50)   NOT NULL,
-    model         VARCHAR(100)  NOT NULL,
-    first_connect TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    INDEX idx_sn (sn)
-);
-
--- 連線紀錄表
-CREATE TABLE connect_logs (
-    id_for_jpa  INT AUTO_INCREMENT PRIMARY KEY,
-    session_id  VARCHAR(100),
-    device_id   BIGINT        NOT NULL,
-    status_id   INT           NOT NULL,
-    sv          VARCHAR(50),
-    reported_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (device_id)  REFERENCES devices(device_id),
-    FOREIGN KEY (status_id)  REFERENCES status_ref(status_id)
-);
-
--- OTA Campaign 資料表
-CREATE TABLE campaigns (
-    no              INT AUTO_INCREMENT PRIMARY KEY,
-    campaign_id     BIGINT GENERATED ALWAYS AS (no * 1000) STORED,
-    brand           VARCHAR(50),
-    model           VARCHAR(100),
-    sv              VARCHAR(50),
-    tv              VARCHAR(50),
-    file            VARCHAR(255),
-    file_size       INT,
-    is_test_mode    BOOLEAN DEFAULT FALSE,
-    test_list       JSON,
-    download_by_id  SMALLINT,
-    is_enabled      BOOLEAN DEFAULT TRUE,
-    create_at       TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    update_at       TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    is_deleted      BOOLEAN DEFAULT FALSE,
-    file_path       VARCHAR(500),
-    FOREIGN KEY (download_by_id) REFERENCES download_by_ref(download_by_id)
-);
-
--- 初始化參照資料
-INSERT INTO `status_ref` (`status_id`, `status`) VALUES
-    (0, 'timeout'),
-    (1, 'received'),
-    (2, 'cancel'),
-    (3, 'downloading'),
-    (4, 'downloaded'),
-    (5, 'reboot'),
-    (6, 'succeeded'),
-    (7, 'failed');
-
-INSERT INTO `download_by_ref` (`download_by_id`, `content`) VALUES
-    (1, 'wifi'),
-    (2, 'user');
-```
-
----
-
-### Step 3 — Clone 專案
-
-```bash
-git clone https://github.com/169628/kumo_backend.git
-cd kumo
-```
-
----
-
-### Step 4 — 確認設定檔
-
-確認 `src/main/resources/application.properties` 內的連線設定與 Docker 一致：
-
-```properties
-spring.datasource.url=jdbc:mysql://localhost:3307/KUMO
-spring.datasource.username=root
-spring.datasource.password=123456
-
-spring.data.redis.host=localhost
-spring.data.redis.port=6379
-spring.data.redis.password=mypassword
-```
-
----
-
-### Step 5 — 建置並啟動後端
-
-```bash
-# 使用 Maven Wrapper
-./mvnw spring-boot:run
-
-# 或先打包再執行
-./mvnw clean package -DskipTests
-java -jar target/kumo-*.jar
-```
-
-服務啟動後預設監聽：`http://localhost:8080`
-
----
-
-### Step 6 — 驗證服務
-
-```bash
-# 測試登入取得 JWT
-curl -X POST http://localhost:8080/kumo/api/login \
-  -H "Content-Type: application/json" \
-  -d '{"username":"admin","password":"admin"}'
-```
+> 請前往 https://github.com/169628/kumo_deploy
 
 ---
 
