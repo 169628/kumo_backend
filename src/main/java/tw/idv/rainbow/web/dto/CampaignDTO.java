@@ -35,6 +35,7 @@ public class CampaignDTO {
     @JsonFormat(pattern = "yyyy/MM/dd HH:mm",timezone = "GMT+8")
     private Timestamp updateAt;
     private Boolean isDeleted;
+    private String filePath;
 
     public static CampaignDTO toDTO(Campaigns campaign) {
         CampaignDTO dto = new CampaignDTO();
@@ -53,6 +54,7 @@ public class CampaignDTO {
         dto.setCreateAt(campaign.getCreateAt());
         dto.setUpdateAt(campaign.getUpdateAt());
         dto.setIsDeleted(campaign.getIsDeleted());
+        dto.setFilePath(campaign.getFilePath());
         return dto;
     }
 }

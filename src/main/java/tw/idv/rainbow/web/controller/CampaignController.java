@@ -1,15 +1,18 @@
 package tw.idv.rainbow.web.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import tw.idv.rainbow.common.ApiResponse;
+import org.springframework.web.multipart.MultipartFile;
+import tw.idv.rainbow.common.ApiResult;
 import tw.idv.rainbow.web.dto.CampaignDTO;
 import tw.idv.rainbow.web.entity.Campaigns;
 import tw.idv.rainbow.web.service.CampaignService;
 
-import java.util.ArrayList;
 import java.util.List;
 
+@Tag(name = "Campaign Page")
 @RestController
 @RequestMapping("campaign")
 public class CampaignController {
@@ -17,59 +20,65 @@ public class CampaignController {
     @Autowired
     private CampaignService campaignService;
 
+    @Operation(summary = "Get all campaign list")
     @GetMapping
-    public ApiResponse getAll() {
+    public ApiResult getAll() {
 
         List<CampaignDTO> campaigns = campaignService.getCampaign();
 
-        return ApiResponse.success(campaigns);
+        return ApiResult.success(campaigns);
     }
 
+    @Operation(summary = "Get one campaign", description = "The id is campaign id")
     @GetMapping("{id}")
-    public ApiResponse getOne(@PathVariable Long id){
+    public ApiResult getOne(@PathVariable Long id){
 
         CampaignDTO campaignDTO = campaignService.getOneCampaign(id);
 
         if (campaignDTO == null){
-            return ApiResponse.error("can not find the campaign");
+            return ApiResult.error("can not find the campaign");
         }
-        return ApiResponse.success(campaignDTO);
+        return ApiResult.success(campaignDTO);
     }
 
+    @Operation(summary = "Create campaign", description = "Because create campaign need upload file, the better way to test is use kumo frontend web")
     @PostMapping
-    public ApiResponse create(@RequestBody Campaigns campaign){
-        String message = campaignService.create(campaign);
+    public ApiResult create(@RequestPart Campaigns campaign, @RequestPart MultipartFile uploadData){
+        String message = campaignService.create(campaign,uploadData);
         if(message != null){
-            return ApiResponse.error(message);
+            return ApiResult.error(message);
         }
-        return ApiResponse.success(null);
+        return ApiResult.success(null);
     }
 
+    @Operation(summary = "Update one campaign", description = "Not include enable change, the id is campaign id")
     @PutMapping("{id}")
-    public ApiResponse put(@PathVariable Long id, @RequestBody Campaigns campaign){
-        String message = campaignService.update(id,campaign);
+    public ApiResult put(@PathVariable Long id, @RequestPart Campaigns campaign, @RequestPart(required = false) MultipartFile uploadData){
+        String message = campaignService.update(id,campaign,uploadData);
         if(message != null){
-            return ApiResponse.error(message);
+            return ApiResult.error(message);
         }
-        return ApiResponse.success(null);
+        return ApiResult.success(null);
     }
 
+    @Operation(summary = "Delete one campaign", description = "The id is campaign id")
     @DeleteMapping("{id}")
-    public ApiResponse delete(@PathVariable Long id){
+    public ApiResult delete(@PathVariable Long id){
         String message = campaignService.delete(id);
         if(message != null){
-            return ApiResponse.error(message);
+            return ApiResult.error(message);
         }
-        return ApiResponse.success(null);
+        return ApiResult.success(null);
     }
 
+    @Operation(summary = "Change campaign enable", description = "The id is campaign id")
     @PutMapping("enable/{id}")
-    public ApiResponse enable(@PathVariable Long id){
+    public ApiResult enable(@PathVariable Long id){
         String message = campaignService.toggleEnable(id);
         if(message != null){
-            return ApiResponse.error(message);
+            return ApiResult.error(message);
         }
-        return ApiResponse.success(null);
+        return ApiResult.success(null);
     }
 }
 

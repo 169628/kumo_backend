@@ -7,16 +7,16 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ApiResponse<T> {
+public class ApiResult<T> {
     private int status;
     private String message;
     private T data;
 
-    public static <T> ApiResponse<T> success(T data){
-        return new ApiResponse(1,"success", data);
+    public static <T> ApiResult<T> success(T data){
+        return new ApiResult(1,"success", data);
     }
 
-    public static <T> ApiResponse<T> error(String message){
-        return new ApiResponse(0,message,null);
+    public static <T> ApiResult<T> error(String message){
+        return new ApiResult(0,message,null);
     }
 }

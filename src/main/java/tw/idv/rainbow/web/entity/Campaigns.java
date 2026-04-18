@@ -2,6 +2,7 @@ package tw.idv.rainbow.web.entity;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,6 +12,7 @@ import tw.idv.rainbow.common.JsonConverter;
 import java.sql.Timestamp;
 import java.util.List;
 
+@Schema(description = "Create campaign object")
 @Entity
 @Data
 @NoArgsConstructor
@@ -24,20 +26,27 @@ public class Campaigns {
     @Column(insertable = false, updatable = false)
     private Long campaignId;
 
+    @Schema(description = "brand", example = "Projector")
     private String brand;
 
+    @Schema(description = "model", example = "L1")
     private String model;
 
+    @Schema(description = "sv", example = "v1.0.1")
     private String sv;
 
+    @Schema(description = "tv", example = "v1.0.2")
     private String tv;
 
+    @Column(length = 255)
     private String file;
 
     private Integer fileSize;
 
+    @Schema(description = "Is this campaign test mode?", example = "true")
     private Boolean isTestMode;
 
+    @Schema(description = "List of test devices", example = "['EXAM111','EXAM222']")
     @Convert(converter = JsonConverter.class)
     private List<String> testList;
 
@@ -55,6 +64,9 @@ public class Campaigns {
 
     @Column(insertable = false)
     private Boolean isDeleted;
+
+    @Column(length = 500)
+    private String filePath;
 
     @ManyToOne
     @JoinColumn(name = "download_by_id", insertable = false, updatable = false)

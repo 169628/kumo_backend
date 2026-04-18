@@ -1,5 +1,6 @@
 package tw.idv.rainbow.web.service;
 
+import org.springframework.web.multipart.MultipartFile;
 import tw.idv.rainbow.web.dto.CampaignDTO;
 import tw.idv.rainbow.web.entity.Campaigns;
 
@@ -7,7 +8,7 @@ import java.util.List;
 
 public interface CampaignService {
 
-    String create(Campaigns campaign);
+    String create(Campaigns campaign, MultipartFile file);
 
     List<CampaignDTO> getCampaign();
 
@@ -15,7 +16,7 @@ public interface CampaignService {
 
     String delete(Long campaignId);
 
-    String update(Long campaignId, Campaigns campaign);
+    String update(Long campaignId, Campaigns campaign, MultipartFile file);
 
     String toggleEnable(Long campaignId);
 }

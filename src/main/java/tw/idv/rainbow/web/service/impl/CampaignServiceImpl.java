@@ -1,13 +1,19 @@
 package tw.idv.rainbow.web.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 import tw.idv.rainbow.web.dto.CampaignDTO;
 import tw.idv.rainbow.web.entity.Campaigns;
 import tw.idv.rainbow.web.repository.CampaignsRepository;
 import tw.idv.rainbow.web.service.CampaignService;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,12 +21,16 @@ import java.util.List;
 @Service
 @Transactional
 public class CampaignServiceImpl implements CampaignService {
+    @Value("${file.upload-dir:uploads}")
+    private String uploadDir;
+    @Value("${server.servlet.context-path}")
+    private String contextPath;
 
     @Autowired
     private CampaignsRepository repository;
 
     @Override
-    public String create(Campaigns campaign) {
+    public String create(Campaigns campaign, MultipartFile file) {
         String brand = campaign.getBrand();
         String model = campaign.getModel();
         String sv = campaign.getSv();
@@ -50,20 +60,28 @@ public class CampaignServiceImpl implements CampaignService {
             return "Target version must be at least 2 characters and maximum 10 characters";
         }
 
-        if(campaign.getFile() == null){
-            return "File is required";
-        }
-
-        if(campaign.getFileSize() == null){
-            return "File size is required";
-        }
-
         if(campaign.getIsTestMode() == null){
             return "Test mode is required";
         }
 
         if(campaign.getDownloadById() == null){
             return "Download by id is required";
+        }
+
+        if(file == null || file.isEmpty()){
+            return "file is require";
+        }
+
+        // save file
+        String filename = System.currentTimeMillis() + "_" + file.getOriginalFilename();
+        try {
+            Files.createDirectories(Paths.get(uploadDir));
+            file.transferTo(Paths.get(uploadDir, filename));
+            campaign.setFilePath("http://localhost:8080" + contextPath + "/file/" + filename);
+            campaign.setFile(filename);
+            campaign.setFileSize((int) file.getSize());
+        } catch (IOException e) {
+            return "File upload failed";
         }
 
         repository.save(campaign);
@@ -104,7 +122,7 @@ public class CampaignServiceImpl implements CampaignService {
     }
 
     @Override
-    public String update(Long campaignId, Campaigns newCampaign) {
+    public String update(Long campaignId, Campaigns newCampaign, MultipartFile file) {
         String brand = newCampaign.getBrand();
         String model = newCampaign.getModel();
         String sv = newCampaign.getSv();
@@ -147,14 +165,6 @@ public class CampaignServiceImpl implements CampaignService {
             campaign.setTv(tv);
         }
 
-        if(newCampaign.getFile() != null){
-            campaign.setFile(newCampaign.getFile());
-        }
-
-        if(newCampaign.getFileSize() != null){
-            campaign.setFileSize(newCampaign.getFileSize());
-        }
-
         if(newCampaign.getIsTestMode() != null){
             campaign.setIsTestMode(newCampaign.getIsTestMode());
         }
@@ -166,6 +176,21 @@ public class CampaignServiceImpl implements CampaignService {
         if(newCampaign.getDownloadById() != null){
             campaign.setDownloadById(newCampaign.getDownloadById());
         }
+
+        if(file != null){
+            // save file
+            String filename = System.currentTimeMillis() + "_" + file.getOriginalFilename();
+            try {
+                Files.createDirectories(Paths.get(uploadDir));
+                file.transferTo(Paths.get(uploadDir, filename));
+                campaign.setFilePath("http://localhost:8080" + contextPath + "/file/" + filename);
+                campaign.setFile(filename);
+                campaign.setFileSize((int) file.getSize());
+            } catch (IOException e) {
+                return "File upload failed";
+            }
+        }
+
         campaign.setUpdateAt(new Timestamp(System.currentTimeMillis()));
         repository.save(campaign);
 
