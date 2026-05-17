@@ -1,100 +1,98 @@
 # Kumo — OTA Update System (Backend)
 
-> 雲端 OTA 韌體更新平台後端服務，提供裝置連線管理、Campaign 派送、即時狀態回報與報表功能。
+> A cloud-based OTA firmware update platform backend, providing device connection management, campaign dispatching, real-time status reporting, and reporting features.
 
 ---
 
-## 目錄
+## Table of Contents
 
-- [專案概述](#專案概述)
-- [系統架構圖](#系統架構圖)
-- [線稿圖](#線稿圖)
-- [ER Model 圖](#er-model-圖)
-- [WebSocket 連線流程](#websocket-連線流程)
-- [資料夾架構](#資料夾架構)
-- [技術版本](#技術版本)
-- [相關前端專案](#相關前端專案)
-- [安裝與啟動](#安裝與啟動)
-- [Swagger API 文件](#swagger-api-文件)
-- [核心技術說明](#核心技術說明)
-
----
-
-## 專案概述
-
-Kumo 是一套 OTA（Over-The-Air）韌體更新管理平台，整個系統由三個 Repo 組成：
-
-| Repo | 說明 |
-|------|------|
-| `kumo_backend` (本 Repo) | Spring Boot 後端，提供 REST API 與 WebSocket 服務 |
-| `kumo_frontend` | 管理後台前端，供管理員操作 Campaign、查看裝置狀態與報表 |
-| `kumo_demo_device` | 裝置端前端模擬器，模擬 IoT 裝置透過 WebSocket 回報更新狀態 |
-| `kumo_deploy` | 使用 docker compose 快速在本地端部署 |
-
-**核心功能：**
-- 裝置連線與韌體版本回報（WebSocket / STOMP）
-- OTA Campaign 建立、管理與派送
-- 裝置連線紀錄查詢
-- 各品牌裝置 7 日接收數報表
-- JWT 身份驗證保護 REST API
-- Redis 快取每日各品牌裝置接收數
+- [Project Overview](#project-overview)
+- [System Architecture](#system-architecture)
+- [Wireframe](#wireframe)
+- [ER Model](#er-model)
+- [WebSocket Connection Flow](#websocket-connection-flow)
+- [Folder Structure](#folder-structure)
+- [Tech Stack](#tech-stack)
+- [Related Frontend Projects](#related-frontend-projects)
+- [Installation & Setup](#installation--setup)
+- [Swagger API Docs](#swagger-api-docs)
+- [Core Technologies](#core-technologies)
 
 ---
 
-## 系統架構圖
+## Project Overview
 
-![截圖 2026-04-18 18.35.42.png](docs/%E6%88%AA%E5%9C%96%202026-04-18%2018.35.42.png)
+Kumo is an OTA (Over-The-Air) firmware update management platform consisting of three repositories:
+
+| Repo | Description |
+|------|-------------|
+| `kumo_backend` (this repo) | Spring Boot backend providing REST API and WebSocket services |
+| `kumo_frontend` | Admin frontend for managing campaigns, viewing device status and reports |
+| `kumo_demo_device` | Device-side frontend simulator, simulating IoT devices reporting update status via WebSocket |
+
+**Core Features:**
+- Device connection and firmware version reporting (WebSocket / STOMP)
+- OTA Campaign creation, management and dispatching
+- Device connection log queries
+- 7-day received device count report by brand
+- JWT authentication protecting REST APIs
+- Redis caching for daily received device count per brand
 
 ---
 
-## 線稿圖
+## System Architecture
+
+![System Architecture](docs/%E6%88%AA%E5%9C%96%202026-04-18%2018.35.42.png)
+
+---
+
+## Wireframe
 
 > https://miro.com/app/board/uXjVJ-xg_CM=/
 
 ---
 
-## ER Model 圖
+## ER Model
 
 ![ER Model](docs/%E6%88%AA%E5%9C%96%202026-04-18%2018.30.56.png)
 
+**Table Descriptions:**
 
-**資料表說明：**
-
-| 資料表 | 說明 |
-|--------|------|
-| `devices` | 裝置基本資訊（SN、品牌、型號） |
-| `connect_logs` | 裝置每次連線紀錄與狀態 |
-| `campaigns` | OTA 更新任務設定 |
-| `status_ref` | 裝置狀態參照表（received / succeeded / failed ...） |
-| `download_by_ref` | 下載方式參照表 |
-
----
-
-## WebSocket 連線流程
-
->https://mermaid.ai/app/projects/dd4a5778-54e5-4f18-a629-403442f9b1fb/diagrams/5cbbb6cb-1b69-4bea-83c8-c8bda499f62a/version/v0.1/edit
+| Table | Description |
+|-------|-------------|
+| `devices` | Device basic info (SN, brand, model) |
+| `connect_logs` | Device connection logs and status per session |
+| `campaigns` | OTA update task configuration |
+| `status_ref` | Device status reference table (received / succeeded / failed ...) |
+| `download_by_ref` | Download method reference table |
 
 ---
 
-## 資料夾架構
+## WebSocket Connection Flow
+
+> https://mermaid.ai/app/projects/dd4a5778-54e5-4f18-a629-403442f9b1fb/diagrams/5cbbb6cb-1b69-4bea-83c8-c8bda499f62a/version/v0.1/edit
+
+---
+
+## Folder Structure
 
 ```
 kumo/
 ├── src/
 │   ├── main/
 │   │   ├── java/tw/idv/rainbow/
-│   │   │   ├── KumoApplication.java          # 程式進入點
+│   │   │   ├── KumoApplication.java          # Application entry point
 │   │   │   ├── common/
-│   │   │   │   ├── ApiResult.java            # 統一 API 回應格式
-│   │   │   │   └── JsonConverter.java        # JSON 轉換工具
+│   │   │   │   ├── ApiResult.java            # Unified API response format
+│   │   │   │   └── JsonConverter.java        # JSON conversion utility
 │   │   │   ├── config/
-│   │   │   │   ├── SecurityConfig.java       # Spring Security 設定
-│   │   │   │   ├── SwaggerConfig.java        # OpenAPI / Swagger 設定
-│   │   │   │   ├── WebSocketConfig.java      # STOMP WebSocket 設定
-│   │   │   │   └── SpringMvcConfig.java      # MVC 設定
+│   │   │   │   ├── SecurityConfig.java       # Spring Security configuration
+│   │   │   │   ├── SwaggerConfig.java        # OpenAPI / Swagger configuration
+│   │   │   │   ├── WebSocketConfig.java      # STOMP WebSocket configuration
+│   │   │   │   └── SpringMvcConfig.java      # MVC configuration
 │   │   │   ├── security/
-│   │   │   │   ├── JwtUtil.java              # JWT 產生與驗證
-│   │   │   │   └── JwtFilter.java            # JWT 請求過濾器
+│   │   │   │   ├── JwtUtil.java              # JWT generation and validation
+│   │   │   │   └── JwtFilter.java            # JWT request filter
 │   │   │   ├── web/
 │   │   │   │   ├── controller/               # REST API Controllers
 │   │   │   │   │   ├── LoginController.java
@@ -102,27 +100,27 @@ kumo/
 │   │   │   │   │   ├── CampaignController.java
 │   │   │   │   │   ├── ReportController.java
 │   │   │   │   │   └── FileController.java
-│   │   │   │   ├── dto/                      # 資料傳輸物件
-│   │   │   │   ├── entity/                   # JPA 實體
+│   │   │   │   ├── dto/                      # Data Transfer Objects
+│   │   │   │   ├── entity/                   # JPA Entities
 │   │   │   │   ├── repository/               # Spring Data JPA Repositories
-│   │   │   │   └── service/                  # 業務邏輯層
+│   │   │   │   └── service/                  # Business logic layer
 │   │   │   │       └── impl/
 │   │   │   └── websocket/
-│   │   │       └── ConnectController.java    # WebSocket 訊息處理
+│   │   │       └── ConnectController.java    # WebSocket message handler
 │   │   └── resources/
-│   │       └── application.properties        # 應用程式設定
+│   │       └── application.properties        # Application configuration
 │   └── test/
-├── uploads/                                  # 上傳韌體檔案存放目錄
+├── uploads/                                  # Uploaded firmware files directory
 ├── pom.xml
 └── README.md
 ```
 
 ---
 
-## 技術版本
+## Tech Stack
 
-| 技術 | 版本 |
-|------|------|
+| Technology | Version |
+|------------|---------|
 | Java | 17 |
 | Spring Boot | 4.0.5 |
 | Spring Security | (managed by Spring Boot) |
@@ -138,99 +136,278 @@ kumo/
 
 ---
 
-## 其他相關專案
+## Related Frontend Projects
 
-| 名稱 | Repo | 說明 |
-|--|------|------|
-| `kumo_frontend` | https://github.com/169628/kumo_frontend | 管理員操作介面，Campaign CRUD、裝置清單、報表儀表板 |
-| `kumo_demo_device`  | https://github.com/169628/kumo_demo_device | 模擬 IoT 裝置，透過 WebSocket 連線並回報更新狀態 |
-| `kumo_deploy`  | https://github.com/169628/kumo_deploy| 使用 docker compose 快速在本地端部署 |
-
----
-
-## 安裝與啟動
-
-> 請前往 https://github.com/169628/kumo_deploy
+| Name | Repo | Description |
+|------|------|-------------|
+| `kumo_frontend` | https://github.com/169628/kumo_frontend | Admin UI for Campaign CRUD, device list, and report dashboard |
+| `kumo_demo_device` | https://github.com/169628/kumo_demo_device | Simulates IoT devices connecting via WebSocket and reporting update status |
 
 ---
 
-## Swagger API 文件
+## Installation & Setup
 
-服務啟動後，可透過瀏覽器開啟 API 文件：
+### Prerequisites
+
+- Java 17+
+- Maven 3.8+
+- Docker & Docker Compose
+
+---
+
+### Step 1 — Start the Databases (MySQL + Redis)
+
+Create `docker-compose.yml` (if it doesn't exist):
+
+```yaml
+version: '3.8'
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: kumo-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: KUMO
+    ports:
+      - "3307:3306"
+    volumes:
+      - kumo-mysql-data:/var/lib/mysql
+
+  redis:
+    image: redis:7.0
+    container_name: kumo-redis
+    command: redis-server --requirepass mypassword
+    ports:
+      - "6379:6379"
+
+volumes:
+  kumo-mysql-data:
+```
+
+Start the containers:
+
+```bash
+docker compose up -d
+```
+
+Verify containers are running:
+
+```bash
+docker ps
+```
+
+---
+
+### Step 2 — Create Database Tables
+
+Connect to the MySQL container and run the following SQL:
+
+```bash
+docker exec -it kumo-mysql mysql -uroot -p123456 KUMO
+```
+
+```sql
+-- Device status reference table
+CREATE TABLE status_ref (
+    status_id INT AUTO_INCREMENT PRIMARY KEY,
+    status    VARCHAR(50) NOT NULL
+);
+
+-- Download method reference table
+CREATE TABLE download_by_ref (
+    download_by_id SMALLINT AUTO_INCREMENT PRIMARY KEY,
+    content        VARCHAR(100) NOT NULL
+);
+
+-- Device table
+CREATE TABLE devices (
+    device_id     BIGINT AUTO_INCREMENT PRIMARY KEY,
+    sn            VARCHAR(100)  NOT NULL,
+    brand         VARCHAR(50)   NOT NULL,
+    model         VARCHAR(100)  NOT NULL,
+    first_connect TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    INDEX idx_sn (sn)
+);
+
+-- Connection log table
+CREATE TABLE connect_logs (
+    id_for_jpa  INT AUTO_INCREMENT PRIMARY KEY,
+    session_id  VARCHAR(100),
+    device_id   BIGINT        NOT NULL,
+    status_id   INT           NOT NULL,
+    sv          VARCHAR(50),
+    reported_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (device_id)  REFERENCES devices(device_id),
+    FOREIGN KEY (status_id)  REFERENCES status_ref(status_id)
+);
+
+-- OTA Campaign table
+CREATE TABLE campaigns (
+    no              INT AUTO_INCREMENT PRIMARY KEY,
+    campaign_id     BIGINT GENERATED ALWAYS AS (no * 1000) STORED,
+    brand           VARCHAR(50),
+    model           VARCHAR(100),
+    sv              VARCHAR(50),
+    tv              VARCHAR(50),
+    file            VARCHAR(255),
+    file_size       INT,
+    is_test_mode    BOOLEAN DEFAULT FALSE,
+    test_list       JSON,
+    download_by_id  SMALLINT,
+    is_enabled      BOOLEAN DEFAULT TRUE,
+    create_at       TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    update_at       TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    is_deleted      BOOLEAN DEFAULT FALSE,
+    file_path       VARCHAR(500),
+    FOREIGN KEY (download_by_id) REFERENCES download_by_ref(download_by_id)
+);
+
+-- Seed reference data
+INSERT INTO `status_ref` (`status_id`, `status`) VALUES
+    (0, 'timeout'),
+    (1, 'received'),
+    (2, 'cancel'),
+    (3, 'downloading'),
+    (4, 'downloaded'),
+    (5, 'reboot'),
+    (6, 'succeeded'),
+    (7, 'failed');
+
+INSERT INTO `download_by_ref` (`download_by_id`, `content`) VALUES
+    (1, 'wifi'),
+    (2, 'user');
+```
+
+---
+
+### Step 3 — Clone the Project
+
+```bash
+git clone https://github.com/169628/kumo_backend.git
+cd kumo
+```
+
+---
+
+### Step 4 — Verify Configuration
+
+Confirm `src/main/resources/application.properties` matches your Docker settings:
+
+```properties
+spring.datasource.url=jdbc:mysql://localhost:3307/KUMO
+spring.datasource.username=root
+spring.datasource.password=123456
+
+spring.data.redis.host=localhost
+spring.data.redis.port=6379
+spring.data.redis.password=mypassword
+```
+
+---
+
+### Step 5 — Build and Start the Backend
+
+```bash
+# Using Maven Wrapper
+./mvnw spring-boot:run
+
+# Or package first, then run
+./mvnw clean package -DskipTests
+java -jar target/kumo-*.jar
+```
+
+The service listens on `http://localhost:8080` by default.
+
+---
+
+### Step 6 — Verify the Service
+
+```bash
+# Test login to obtain a JWT
+curl -X POST http://localhost:8080/kumo/api/login \
+  -H "Content-Type: application/json" \
+  -d '{"username":"admin","password":"admin"}'
+```
+
+---
+
+## Swagger API Docs
+
+Once the service is running, open the API docs in your browser:
 
 ```
 http://localhost:8080/kumo/api/swagger-ui.html
 ```
 
-OpenAPI JSON Schema：
+OpenAPI JSON Schema:
 
 ```
 http://localhost:8080/kumo/api/v3/api-docs
 ```
 
-> 大部分 API 需要 JWT 驗證，請先呼叫 `/login` 取得 Token，並在 Swagger UI 右上角點選 **Authorize**，輸入 `Bearer <token>`。
+> Most APIs require JWT authentication. Call `/login` first to obtain a token, then click **Authorize** in the top-right of Swagger UI and enter `Bearer <token>`.
 
 ---
 
-## API 一覽
+## API Overview
 
-| Method | Path | 說明 | 需要 JWT |
-|--------|------|------|----------|
-| POST | `/login` | 登入取得 JWT Token | 否 |
-| GET | `/device` | 取得所有裝置最新狀態清單 | 是 |
-| GET | `/device/{id}` | 取得指定裝置的連線紀錄 | 是 |
-| GET | `/campaign` | 取得所有 Campaign 清單 | 是 |
-| GET | `/campaign/{id}` | 取得指定 Campaign | 是 |
-| POST | `/campaign` | 建立 Campaign（含韌體上傳） | 是 |
-| PUT | `/campaign/{id}` | 更新 Campaign | 是 |
-| DELETE | `/campaign/{id}` | 刪除 Campaign | 是 |
-| PUT | `/campaign/enable/{id}` | 切換 Campaign 啟用狀態 | 是 |
-| GET | `/report/received` | 各品牌裝置 7 日接收數報表 | 是 |
-| GET | `/file/{fileName}` | 下載韌體檔案 | 否 |
-| WS | `/endpoint` | WebSocket 連線端點（STOMP） | 否 |
+| Method | Path | Description | Requires JWT |
+|--------|------|-------------|--------------|
+| POST | `/login` | Login and obtain JWT Token | No |
+| GET | `/device` | Get all devices with latest status | Yes |
+| GET | `/device/{id}` | Get connection logs for a specific device | Yes |
+| GET | `/campaign` | Get all campaigns | Yes |
+| GET | `/campaign/{id}` | Get a specific campaign | Yes |
+| POST | `/campaign` | Create a campaign (with firmware upload) | Yes |
+| PUT | `/campaign/{id}` | Update a campaign | Yes |
+| DELETE | `/campaign/{id}` | Delete a campaign | Yes |
+| PUT | `/campaign/enable/{id}` | Toggle campaign enabled status | Yes |
+| GET | `/report/received` | 7-day received device count report by brand | Yes |
+| GET | `/file/{fileName}` | Download firmware file | No |
+| WS | `/endpoint` | WebSocket connection endpoint (STOMP) | No |
 
 ---
 
-## 核心技術說明
+## Core Technologies
 
-### JWT（JSON Web Token）
+### JWT (JSON Web Token)
 
-- 採用 **HMAC SHA-256（HS256）** 演算法簽署
-- Token 有效期：**24 小時**
-- 客戶端需在每次 REST API 請求的 Header 帶入：
+- Signed using **HMAC SHA-256 (HS256)** algorithm
+- Token expiry: **24 hours**
+- Clients must include the following header in every REST API request:
   ```
   Authorization: Bearer <token>
   ```
-- 以下路徑為公開端點，**不需要** JWT：
+- The following paths are public endpoints that **do not** require JWT:
   - `POST /login`
   - `GET /file/*`
   - `WS /endpoint/**`
-  - `/swagger-ui/**`、`/v3/api-docs/**`
+  - `/swagger-ui/**`, `/v3/api-docs/**`
 
 ---
 
-### WebSocket（STOMP over SockJS）
+### WebSocket (STOMP over SockJS)
 
-- 使用 **STOMP** 協定，支援 **SockJS** 降級回傳
-- 裝置端連線至 `/endpoint`，訂閱 `/msg/{sn}` 接收回應
-- 裝置端傳送訊息至 `/connect/device/{sn}`
-- 管理後台可訂閱 `/msg/{sn}` 即時接收裝置狀態更新
-- WebSocket 連線**不需要** JWT 驗證
+- Uses the **STOMP** protocol with **SockJS** fallback support
+- Devices connect to `/endpoint` and subscribe to `/msg/{sn}` to receive responses
+- Devices send messages to `/connect/device/{sn}`
+- The admin frontend can subscribe to `/msg/{sn}` to receive real-time device status updates
+- WebSocket connections do **not** require JWT authentication
 
 ---
 
 ### Redis
 
-- 使用 **Lettuce** 連線池
-- 用途：快取每日各品牌已接收裝置的 SN Set
-- Key 格式：`{brand}:{yyyy-MM-dd}`
-- TTL：**30 天**
-- 供報表 API 計算近 7 日各品牌接收數
+- Uses **Lettuce** connection pool
+- Purpose: Cache daily received device SN sets per brand
+- Key format: `{brand}:{yyyy-MM-dd}`
+- TTL: **30 days**
+- Used by the report API to calculate 7-day received device counts per brand
 
 ---
 
-### 預設帳號
+### Default Account
 
-| 帳號 | 密碼 |
-|------|------|
+| Username | Password |
+|----------|----------|
 | `admin` | `admin` |

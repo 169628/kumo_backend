@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface CampaignsRepository extends JpaRepository<Campaigns,Integer> {
 
-    List<Campaigns> findByIsDeletedIsFalseOrderByCreateAtDesc();
+    List<Campaigns> findByIsDeletedIsFalseOrderByUpdateAtDesc();
 
     Campaigns findByCampaignId(Long campaignId);
 

@@ -91,7 +91,7 @@ public class CampaignServiceImpl implements CampaignService {
 
     @Override
     public List<CampaignDTO> getCampaign() {
-        List<Campaigns> campaignList = repository.findByIsDeletedIsFalseOrderByCreateAtDesc();
+        List<Campaigns> campaignList = repository.findByIsDeletedIsFalseOrderByUpdateAtDesc();
         List<CampaignDTO> dtoList = new ArrayList<>();
         for(Campaigns campaign : campaignList){
             CampaignDTO dto = CampaignDTO.toDTO(campaign);
@@ -117,6 +117,7 @@ public class CampaignServiceImpl implements CampaignService {
             return "Can not find the campaign";
         }
         campaign.setIsDeleted(true);
+        campaign.setUpdateAt(new Timestamp(System.currentTimeMillis()));
         repository.save(campaign);
         return null;
     }
@@ -204,6 +205,7 @@ public class CampaignServiceImpl implements CampaignService {
             return "Can not find the campaign";
         }
         campaign.setIsEnabled(!campaign.getIsEnabled());
+        campaign.setUpdateAt(new Timestamp(System.currentTimeMillis()));
         repository.save(campaign);
         return null;
     }

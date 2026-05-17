@@ -94,7 +94,7 @@ public class DeviceServiceImpl implements DeviceService {
             device.setSn(sn);
             device = deviceRepository.save(device);
         } else {
-            //比較 brand/model
+            //check brand/model
             if (!Objects.equals(device.getBrand(), brand) || !Objects.equals(device.getModel(), model)) {
                 response.setMessage("Wrong device");
                 return response;
